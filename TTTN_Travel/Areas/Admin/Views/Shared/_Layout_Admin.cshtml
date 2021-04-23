@@ -1,0 +1,181 @@
+﻿
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Nura Admin - Blank page</title>
+    <meta name="description" content="Blank page | Nura Admin">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="author" content="Your website">
+
+    <!-- Favicon -->
+    <link rel="shortcut icon" href="~/assest/images/favicon.ico">
+
+    <!-- Bootstrap CSS -->
+    <link href="~/assest/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
+    <link href="~/datatables/DataTables-1.10.18/css/datatables.min.css" rel="stylesheet" />
+    <script src="~/datatables/DataTables-1.10.18/js/datatables.min.js"></script>
+    <!-- Font Awesome CSS -->
+    <link href="~/assest/font-awesome/css/all.css" rel="stylesheet" type="text/css" />
+
+    <!-- Custom CSS -->
+    <link href="~/assest/css/style.css" rel="stylesheet" type="text/css" />
+</head>
+
+<body class="adminbody">
+
+    <div id="main">
+
+        <!-- top bar navigation -->
+        <div class="headerbar">
+
+            <!-- LOGO -->
+            <div class="headerbar-left">
+                <a href="/Admin/Home/Index" class="logo">
+                    <img alt="Logo" src="~/assest/images/logo.png" />
+                    <span>ADMIN</span>
+                </a>
+            </div>
+
+            <nav class="navbar-custom">
+
+                <ul class="list-inline float-right mb-0">
+
+                    <li class="list-inline-item dropdown notif">
+                        <a class="nav-link dropdown-toggle nav-user" data-toggle="dropdown" href="#" aria-haspopup="false" aria-expanded="false">
+                            <img src="~/images/@ViewBag.Img">
+                        </a>
+                        <div class="dropdown-menu dropdown-menu-right profile-dropdown ">
+                            <!-- item-->
+                            <div class="dropdown-item noti-title">
+                                <h5 class="text-overflow">
+                                    <small>Hello: @ViewBag.Name</small>
+                                </h5>
+                            </div>
+
+                            <!-- item-->
+                            <a href="profile.html" class="dropdown-item notify-item">
+                                <i class="fas fa-user"></i>
+                                <span>Profile</span>
+                            </a>
+
+                            <!-- item-->
+                            <a href="/Admin/Logout/Index" class="dropdown-item notify-item">
+                                <i class="fas fa-power-off"></i>
+                                <span>Logout</span>
+                            </a>
+                        </div>
+                    </li>
+
+                </ul>
+
+                <ul class="list-inline menu-left mb-0">
+                    <li class="float-left">
+                        <button class="button-menu-mobile open-left">
+                            <i class="fas fa-bars"></i>
+                        </button>
+                    </li>
+                </ul>
+
+            </nav>
+
+        </div>
+        <!-- End Navigation -->
+        <!-- Left Sidebar -->
+        <div class="left main-sidebar">
+
+            <div class="sidebar-inner leftscroll">
+
+                <div id="sidebar-menu">
+
+                    <ul>
+                        <li class="submenu">
+                            <a href="/Admin/Tours/Index">
+                                <i class="far fa-list-alt"></i>
+                                <span> Tours </span>
+                            </a>
+                        </li>
+
+                        <li class="submenu">
+                            <a href="/Admin/Tintucs/Index">
+                                <i class="far fa-newspaper"></i>
+                                <span> News </span>
+                            </a>
+                        </li>
+
+                        <li class="submenu">
+                            <a href="/Admin/Addmins/Index">
+                                <i class="fas fa-user"></i>
+                                <span> Account </span>
+                            </a>
+                        </li>
+
+                        <li class="submenu">
+                            <a href="/Admin/Dattours/Index">
+                                <i class="fas fa-file-contract"></i>
+                                <span> Bills </span>
+                            </a>
+                        </li>
+                    </ul>
+                    <div class="clearfix"></div>
+
+                </div>
+
+                <div class="clearfix"></div>
+
+            </div>
+
+        </div>
+        <!-- End Sidebar -->
+
+        <div class="content-page">
+
+            <!-- Start content -->
+            <div class="content">
+
+                <div class="container-fluid">
+
+                    @RenderBody()
+
+                </div>
+                <!-- END container-fluid -->
+
+            </div>
+            <!-- END content -->
+
+        </div>
+        <!-- END content-page -->
+        <script src="~/assest/js/modernizr.min.js"></script>
+        <script src="~/assest/js/jquery.min.js"></script>
+        <script src="~/assest/js/moment.min.js"></script>
+
+        <script src="~/assest/js/popper.min.js"></script>
+        <script src="~/assest/js/bootstrap.min.js"></script>
+
+        <script src="~/assest/js/detect.js"></script>
+        <script src="~/assest/js/fastclick.js"></script>
+        <script src="~/assest/js/jquery.blockUI.js"></script>
+        <script src="~/assest/js/jquery.nicescroll.js"></script>
+
+        <!-- App js -->
+        <script src="~/assest/js/admin.js"></script>
+
+    </div>
+    <!-- END main -->
+    <!-- BEGIN Java Script for this page -->
+    <script src="~/assest/plugins/datatables/datatables.min.js"></script>
+    <!-- dataTabled data <script src="~/assest/data/data_datatables.js"></script>-->
+
+    <script>
+        $(document).on('ready', function () {
+            var table = $('#dataTable').DataTable({
+                data: dataSet
+            });
+        });
+    </script>
+    <!-- END Java Script for this page -->
+
+</body>
+
+</html>

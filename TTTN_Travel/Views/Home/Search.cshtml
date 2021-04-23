@@ -1,0 +1,133 @@
+﻿
+@{
+    ViewData["Title"] = "Search";
+    Layout = "~/Views/Shared/_Layout_Page.cshtml";
+}
+@if (ViewBag.listSearch1 != null)
+{
+    <h2>Tour Trong Nước</h2>
+    @foreach (var i in ViewBag.listSearch1)
+    {
+        <div class="col-md-4">
+
+            <div class="box-dv-tour-page deatil-cate">
+                <a href="/Tours/Details?Id=@i.Idtour"><img src="~/images/@i.Image "></a>
+                <div class="hot-sale">
+                    <div class="triangle-left"></div>
+                    <div class="vuong">	<p><i class="fa fa-flash"></i>Khuyến mãi</p></div>
+                    <div class="triangle-right"></div>
+
+                </div>
+                <div class="box-conten-tour">
+
+                    <div class="title-tour-combo">
+                        <a href="/Tours/Details?Id=@i.Idtour"> @i.Tentuor</a>
+                        <p>
+                            @if (i.Danhgia != 0)
+                            {
+                                @for (var k = 1; k <= i.Danhgia; k++)
+                                {
+                                    <i class="fa fa-star"></i>
+                                }
+                            }
+                        </p>
+                    </div>
+                    <div class="icon-content">
+                        <p><i class="fa fa-map-marker"></i> @i.Lichtrinh </p>
+                        <p>
+                            <i class="	fa fa-pencil-square-o"></i>
+
+                            @i.Ngaybd.
+                        </p>
+                    </div>
+                    <div class="uu-dai-2">
+                        <p>
+                            <a href="">Liên hệ ngay</a>
+                            <a class="icon-contact" href=""><i class="glyphicon glyphicon-phone"></i></a>
+                            <a class="icon-contact" href=""><i class="fa fa-facebook-official"></i></a>
+                            <a class="icon-contact" href=""><i class="glyphicon glyphicon-qrcode"></i></a>
+                        </p>
+                    </div>
+                    <div class="page-price-tour">
+                        <b>@i.Gia đ</b>/khách
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    }
+}
+
+@if (ViewBag.listSearch1 != null)
+{
+    <h2>Tour Nước Ngoài</h2>
+    @foreach (var i in ViewBag.listSearch2)
+    {
+        <div class="col-md-4">
+
+            <div class="box-dv-tour-page deatil-cate">
+                <a href="/Tout/Details?Id=@i.Id"><img src="~/images/@i.Image "></a>
+                <div class="hot-sale">
+                    <div class="triangle-left"></div>
+                    <div class="vuong">	<p><i class="fa fa-flash"></i>Khuyến mãi</p></div>
+                    <div class="triangle-right"></div>
+
+                </div>
+                <div class="box-conten-tour">
+
+                    <div class="title-tour-combo">
+                        <a href="/Tout/Details?Id=@i.Id"> @i.Ten</a>
+                        <p>
+                            @if (i.Rate != 0)
+                            {
+                                @for (var k = 1; k <= i.Rate; k++)
+                                {
+                                    <i class="fa fa-star"></i>
+                                }
+                            }
+                        </p>
+                    </div>
+                    <div class="icon-content">
+                        <p><i class="fa fa-map-marker"></i> @i.Lichtrinh </p>
+                        <p>
+                            <i class="	fa fa-pencil-square-o"></i>
+
+                            @i.Ngay
+                        </p>
+                    </div>
+                    <div class="uu-dai-2">
+                        <p>
+                            <a href="">Liên hệ ngay</a>
+                            <a class="icon-contact" href=""><i class="glyphicon glyphicon-phone"></i></a>
+                            <a class="icon-contact" href=""><i class="fa fa-facebook-official"></i></a>
+                            <a class="icon-contact" href=""><i class="glyphicon glyphicon-qrcode"></i></a>
+                        </p>
+                    </div>
+                    <div class="page-price-tour">
+                        <b>@i.Giakm đ</b>/khách
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    }
+}
+
+@if (ViewBag.listSearch3 != null)
+{
+    <h2>Tin liên quan</h2>
+    @foreach (var i in ViewBag.listSearch3)
+    {
+        <div class="col-md-4">
+            <div class="img-box-left">
+                <a href="/News/Detail?Id=@i.Id"> <img src="~/images/@i.Anhtintuc"></a>
+            </div>
+            <div class="title-box-right">
+                <div class="title-h4"><a href="/News/Detail?Id=@i.Id">@i.Tomtat</a></div>
+                <p>@i.Chitiet</p>
+            </div>
+            <div class="space"></div>
+        </div>
+    }
+}
+

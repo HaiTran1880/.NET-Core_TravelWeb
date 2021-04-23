@@ -1,0 +1,49 @@
+﻿@model TTTN_Travel.Models.Tintuc
+@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
+@{
+    ViewData["Title"] = "Details";
+    Layout = "~/Areas/Admin/Views/Shared/_Layout_Admin.cshtml";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Tintuc</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Tentintuc)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Tentintuc)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Anhtintuc)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Anhtintuc)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Tomtat)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Tomtat)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Chitiet)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Chitiet)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Date)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Date)
+        </dd>
+    </dl>
+</div>
+<div>
+    <a asp-action="Edit" asp-route-id="@Model.Id">Edit</a> |
+    <a asp-action="Index">Back to List</a>
+</div>

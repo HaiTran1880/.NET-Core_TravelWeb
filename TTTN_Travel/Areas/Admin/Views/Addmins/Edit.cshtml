@@ -1,0 +1,41 @@
+﻿@model TTTN_Travel.Models.Addmin
+@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
+@{
+    ViewData["Title"] = "Edit";
+    Layout = "~/Areas/Admin/Views/Shared/_Layout_Admin.cshtml";
+}
+
+<h2>Edit</h2>
+
+<h4>Addmin</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Edit" enctype="multipart/form-data">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="Idad" />
+            <div class="form-group">
+                <label asp-for="Username" class="control-label"></label>
+                <input asp-for="Username" class="form-control" />
+                <span asp-validation-for="Username" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Passwork" class="control-label"></label>
+                <input asp-for="Passwork" class="form-control" />
+                <span asp-validation-for="Passwork" class="text-danger"></span>
+            </div>
+            <img style="width:250px;height:250px" src="~/images/@Model.Image" />
+             <input asp-for="ImageFile" class="form-control" value="@Model.ImageFile"/>
+            <br />
+            <div class="form-group">
+                <input type="submit" value="Save" class="btn btn-primary btn-sm btn-block" />
+
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+

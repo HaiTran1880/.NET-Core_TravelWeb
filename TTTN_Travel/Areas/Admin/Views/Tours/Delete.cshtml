@@ -1,0 +1,82 @@
+﻿@model TTTN_Travel.Models.Tour
+@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
+@{
+    ViewData["Title"] = "Delete";
+    Layout = "~/Areas/Admin/Views/Shared/_Layout_Admin.cshtml";
+}
+
+<h2>Delete</h2>
+
+<h3>Are you sure you want to delete this?</h3>
+<div>
+    <h4>Tour</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Tentuor)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Tentuor)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Image)
+        </dt>
+        <dd>
+            <img style="width:100% " src="~/images/@Html.DisplayFor(model => model.Image)" />
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Ngaybd)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Ngaybd)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Ngaykt)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Ngaykt)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Mota)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Mota)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Gia)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Gia)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Quocgia)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Quocgia)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Trongnuoc)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Trongnuoc)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Lichtrinh)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Lichtrinh)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Danhgia)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Danhgia) Sao
+        </dd>
+    </dl>
+
+    <form asp-action="Delete">
+        <input type="hidden" asp-for="Idtour" />
+        <input type="submit" value="Delete" class="btn btn-danger btn-sm btn-block mt-2"/> 
+        <a asp-action="Index">Back to List</a>
+    </form>
+</div>

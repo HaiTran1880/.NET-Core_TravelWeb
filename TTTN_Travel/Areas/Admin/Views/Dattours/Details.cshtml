@@ -1,0 +1,67 @@
+﻿@model TTTN_Travel.Models.Dattour
+@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
+@{
+    ViewData["Title"] = "Details";
+    Layout = "~/Areas/Admin/Views/Shared/_Layout_Admin.cshtml";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Dattour</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Hoten)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Hoten)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Tentuor)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Tentuor)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Sdt)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Sdt)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Dc)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Dc)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Email)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Email)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Date)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Date)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Songuoi)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Songuoi)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Ghichu)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Ghichu)
+        </dd>
+    </dl>
+</div>
+<div>
+    <a asp-action="Edit" asp-route-id="@Model.Id">Edit</a> |
+    <a asp-action="Index">Back to List</a>
+</div>

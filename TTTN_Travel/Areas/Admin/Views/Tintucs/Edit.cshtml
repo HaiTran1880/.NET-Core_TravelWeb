@@ -1,0 +1,52 @@
+﻿@model TTTN_Travel.Models.Tintuc
+@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
+@{
+    ViewData["Title"] = "Edit";
+    Layout = "~/Areas/Admin/Views/Shared/_Layout_Admin.cshtml";
+}
+
+<h2>Edit</h2>
+
+<h4>Tintuc</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Edit" enctype="multipart/form-data">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="Id" />
+            <div class="form-group">
+                <label asp-for="Tentintuc" class="control-label"></label>
+                <input asp-for="Tentintuc" class="form-control" />
+                <span asp-validation-for="Tentintuc" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="ImageFile" class="control-label"></label>
+                <input asp-for="ImageFile" class="form-control" />
+                <span asp-validation-for="ImageFile" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Tomtat" class="control-label"></label>
+                <input asp-for="Tomtat" class="form-control" />
+                <span asp-validation-for="Tomtat" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Chitiet" class="control-label"></label>
+                <input asp-for="Chitiet" class="form-control" />
+                <span asp-validation-for="Chitiet" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Date" class="control-label"></label>
+                <input asp-for="Date" class="form-control" />
+                <span asp-validation-for="Date" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Save" class="btn btn-primary btn-sm btn-block" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+

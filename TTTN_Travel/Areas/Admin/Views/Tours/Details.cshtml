@@ -1,0 +1,79 @@
+﻿@model TTTN_Travel.Models.Tour
+
+@{
+    ViewData["Title"] = "Details";
+    Layout = "~/Areas/Admin/Views/Shared/_Layout_Admin.cshtml";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Tour</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Tentuor)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Tentuor)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Image)
+        </dt>
+        <dd>
+            <img style="width:100% " src="~/images/@Html.DisplayFor(model => model.Image)" />
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Ngaybd)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Ngaybd)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Ngaykt)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Ngaykt)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Mota)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Mota)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Gia)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Gia)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Quocgia)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Quocgia)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Trongnuoc)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Trongnuoc)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Lichtrinh)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Lichtrinh)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Danhgia)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Danhgia)
+        </dd>
+    </dl>
+</div>
+<div>
+    <a asp-action="Edit" asp-route-id="@Model.Idtour">Edit</a> |
+    <a asp-action="Index">Back to List</a>
+</div>

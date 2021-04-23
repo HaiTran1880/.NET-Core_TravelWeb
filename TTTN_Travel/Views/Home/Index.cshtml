@@ -1,0 +1,256 @@
+﻿
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_Layout_Page.cshtml";
+}
+@model Tintuc;
+<div class="tour-du-lich">
+    <div class="title-h4">Tour du lịch</div>
+    <div class="title-h5"><a href="/Tours/Index"> Xem thêm >></a></div><hr>
+
+</div>
+<div class="row">
+    @foreach (var item in ViewBag.tour)
+    {
+
+        <div class="col-md-4">
+            <div class="box-dv-tour-page">
+                <a href="/Tours/Details?Id=@item.Idtour"> <img src="~/images/@item.Image"></a>
+                <div class="hot-sale">
+                    <div class="triangle-left"></div>
+                    <div class="vuong">	<p><i class="fa fa-thumbs-up"></i>Bán chạy nhất</p></div>
+                    <div class="triangle-right"></div>
+
+                </div>
+                <div class="box-conten-tour">
+                    <div class="title-tour-combo">
+                        @if (item.Danhgia != 0)
+                        {
+                            @for (var k = 1; k <= item.Danhgia; k++)
+                            {
+                                <i class="fa fa-star"></i>
+                            }
+                        }
+                    </div>
+                    <div class="conte-title">
+                        <div class="title-h3"><a href="/Tours/Details?Id=@item.Idtour">@item.Tentuor</a></div>
+                        <p><i class="	fa fa-map-marker"></i>@item.Lichtrinh</p>
+                        <p><i class="fa fa-calendar"></i>@item.Ngaybd</p>
+                    </div>
+                    <div class="page-price-tour">
+                        <b>@item.Gia</b>/khách
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    }
+</div>
+
+<div class="tour-du-lich">
+    <div class="title-h4" style="width:max-content">Tour nước ngoài</div>
+    <div class="title-h5"><a href="/Tout/Index"> Xem thêm >></a></div><hr>
+
+</div>
+<div class="row">
+    @foreach (var item in ViewBag.tout)
+    {
+
+        <div class="col-md-4">
+            <div class="box-dv-tour-page">
+                <a href="/Tout/Details?Id=@item.Id"> <img src="~/images/@item.Image"></a>
+                <div class="hot-sale">
+                    <div class="triangle-left"></div>
+                    <div class="vuong">	<p><i class="fa fa-thumbs-up"></i>Bán chạy nhất</p></div>
+                    <div class="triangle-right"></div>
+
+                </div>
+                <div class="box-conten-tour">
+                    <div class="title-tour-combo">
+                        @if (item.Rate != 0)
+                        {
+                            @for (var k = 1; k <= item.Rate; k++)
+                            {
+                                <i class="fa fa-star"></i>
+                            }
+                        }
+                    </div>
+                    <div class="conte-title">
+                        <div class="title-h3"><a href="/Tout/Details?Id=@item.Id">@item.Ten</a></div>
+                        <p><i class="	fa fa-map-marker"></i>@item.Lichtrinh</p>
+                        <p><i class="fa fa-calendar"></i>@item.Ngay</p>
+                    </div>
+                    <div class="page-price-tour">
+                        <b>@item.Giakm</b>/khách
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    }
+</div>
+
+
+<div class="tour-du-lich-blog">
+    <div class="box-title">
+        <div class="title-h4 title-dl-vn">Tin Tức Du Lịch</div>
+    </div>
+
+    <div class="row">
+        <div class="col-md-8">
+            <div class="img-content-text">
+                <a href="/bao-gia-tour-du-lich-he/">  <img src="https://tourre.vn/wp-content/uploads/2021/03/bang-gia-tour-du-lich-he-2.jpg "></a>
+                <div class="title-h2"><a href="/bao-gia-tour-du-lich-he/">Bảng giá tour du lịch hè 2021 - Giá Rẻ Nhất - Chất Lượng Tốt Nhất</a></div>
+                <p>Bảng giá tour du lịch hè 2021 cho khách lẻ và khách đoàn. Cập nhật các điểm du lich hấp dẫn nhất mùa hè này. </p>
+            </div>
+        </div>
+
+        @foreach (var item in ViewBag.news)
+        {
+            <div class="col-md-4">
+                <div class="img-box-left">
+                    <a href="/News/Detail?Id=@item.Id"> <img src="~/images/@item.Anhtintuc"></a>
+                </div>
+                <div class="title-box-right">
+                    <div class="title-h4"><a href="/News/Detail?Id=@item.Id">@item.Tomtat</a></div>
+                    <p>@item.Chitiet</p>
+                </div>
+                <div class="space"></div>
+            </div>
+        }
+
+    </div>
+    <div class="box-title">
+        <!-- <h1 class="title-dl-vn">Du lịch Việt Nam</h1> -->
+        <hr class="title-dl-vn">
+    </div>
+    <div class="carousel-wrap">
+        <div class="tour-vn owl-loaded owl-drag">
+            <div class="owl-stage-outer">
+                <div class="owl-stage" style="transform: translate3d(-2366px, 0px, 0px); transition: all 0.25s ease 0s; width: 5681px;">
+                    <div class="owl-item cloned" style="width: 226.667px; margin-right: 10px;">
+                        <div class="item moveUp animated">
+                            <a href="https://tourre.vn/ninh-binh/"> <img src="https://tourre.vn/wp-content/uploads/2020/11/ninh-binh.jpg"></a>
+                            <p><a href="https://tourre.vn/ninh-binh/">Ninh Bình </a></p>
+                        </div>
+                    </div><div class="owl-item cloned" style="width: 226.667px; margin-right: 10px;">
+                        <div class="item moveUp animated">
+                            <a href="https://tourre.vn/phu-quoc/"> <img src="https://tourre.vn/wp-content/uploads/2020/11/mui-ne.jpg"></a>
+                            <p><a href="https://tourre.vn/phu-quoc/">Phú Quốc </a></p>
+                        </div>
+                    </div><div class="owl-item cloned" style="width: 226.667px; margin-right: 10px;">
+                        <div class="item moveUp animated">
+                            <a href="https://tourre.vn/quang-ninh/"> <img src="https://tourre.vn/wp-content/uploads/2020/11/quang-ninh.jpg"></a>
+                            <p><a href="https://tourre.vn/quang-ninh/">Quảng Ninh </a></p>
+                        </div>
+                    </div><div class="owl-item cloned" style="width: 226.667px; margin-right: 10px;">
+                        <div class="item moveUp animated">
+                            <a href="https://tourre.vn/sapa/"> <img src="https://tourre.vn/wp-content/uploads/2020/11/sapa-1.jpg"></a>
+                            <p><a href="https://tourre.vn/sapa/">Sapa </a></p>
+                        </div>
+                    </div><div class="owl-item cloned" style="width: 226.667px; margin-right: 10px;">
+                        <div class="item moveUp animated">
+                            <a href="https://tourre.vn/thai-nguyen/"> <img src="https://tourre.vn/wp-content/uploads/2020/12/kham-pha-ho-nui-coc-thai-nguyen.jpg"></a>
+                            <p><a href="https://tourre.vn/thai-nguyen/">Thái Nguyên </a></p>
+                        </div>
+                    </div><div class="owl-item cloned" style="width: 226.667px; margin-right: 10px;">
+                        <div class="item moveUp animated">
+                            <a href="https://tourre.vn/thanh-hoa/"> <img src="https://tourre.vn/wp-content/uploads/2020/11/thanh-hoa.jpg"></a>
+                            <p><a href="https://tourre.vn/thanh-hoa/">Thanh Hóa </a></p>
+                        </div>
+                    </div><div class="owl-item" style="width: 226.667px; margin-right: 10px;">
+                        <div class="item moveUp animated">
+                            <a href="https://tourre.vn/da-nang/"> <img src="https://tourre.vn/wp-content/uploads/2020/11/da-nang.jpg"></a>
+                            <p><a href="https://tourre.vn/da-nang/">Đà Nẵng </a></p>
+                        </div>
+                    </div><div class="owl-item" style="width: 226.667px; margin-right: 10px;">
+                        <div class="item moveUp animated">
+                            <a href="https://tourre.vn/ha-giang/"> <img src="https://tourre.vn/wp-content/uploads/2020/11/ha-giang.jpg"></a>
+                            <p><a href="https://tourre.vn/ha-giang/">Hà Giang </a></p>
+                        </div>
+                    </div><div class="owl-item" style="width: 226.667px; margin-right: 10px;">
+                        <div class="item moveUp animated">
+                            <a href="https://tourre.vn/ha-nam/"> <img src="https://tourre.vn/wp-content/uploads/2020/12/chua-tam-chuc.jpg"></a>
+                            <p><a href="https://tourre.vn/ha-nam/">Hà Nam </a></p>
+                        </div>
+                    </div><div class="owl-item" style="width: 226.667px; margin-right: 10px;">
+                        <div class="item moveUp animated">
+                            <a href="https://tourre.vn/ha-noi/"> <img src="https://tourre.vn/wp-content/uploads/2020/11/ha-noi.jpg"></a>
+                            <p><a href="https://tourre.vn/ha-noi/">Hà Nội </a></p>
+                        </div>
+                    </div><div class="owl-item active" style="width: 226.667px; margin-right: 10px;">
+                        <div class="item moveUp animated">
+                            <a href="https://tourre.vn/moc-chau/"> <img src="https://tourre.vn/wp-content/uploads/2020/11/moc-chau.jpg"></a>
+                            <p><a href="https://tourre.vn/moc-chau/">Mộc Châu </a></p>
+                        </div>
+                    </div><div class="owl-item active" style="width: 226.667px; margin-right: 10px;">
+                        <div class="item moveUp animated">
+                            <a href="https://tourre.vn/nha-trang/"> <img src="https://tourre.vn/wp-content/uploads/2020/11/phu-quoc.jpg"></a>
+                            <p><a href="https://tourre.vn/nha-trang/">Nha Trang </a></p>
+                        </div>
+                    </div><div class="owl-item active" style="width: 226.667px; margin-right: 10px;">
+                        <div class="item moveUp animated">
+                            <a href="https://tourre.vn/ninh-binh/"> <img src="https://tourre.vn/wp-content/uploads/2020/11/ninh-binh.jpg"></a>
+                            <p><a href="https://tourre.vn/ninh-binh/">Ninh Bình </a></p>
+                        </div>
+                    </div><div class="owl-item" style="width: 226.667px; margin-right: 10px;">
+                        <div class="item moveUp animated">
+                            <a href="https://tourre.vn/phu-quoc/"> <img src="https://tourre.vn/wp-content/uploads/2020/11/mui-ne.jpg"></a>
+                            <p><a href="https://tourre.vn/phu-quoc/">Phú Quốc </a></p>
+                        </div>
+                    </div><div class="owl-item" style="width: 226.667px; margin-right: 10px;">
+                        <div class="item moveUp animated">
+                            <a href="https://tourre.vn/quang-ninh/"> <img src="https://tourre.vn/wp-content/uploads/2020/11/quang-ninh.jpg"></a>
+                            <p><a href="https://tourre.vn/quang-ninh/">Quảng Ninh </a></p>
+                        </div>
+                    </div><div class="owl-item" style="width: 226.667px; margin-right: 10px;">
+                        <div class="item moveUp animated">
+                            <a href="https://tourre.vn/sapa/"> <img src="https://tourre.vn/wp-content/uploads/2020/11/sapa-1.jpg"></a>
+                            <p><a href="https://tourre.vn/sapa/">Sapa </a></p>
+                        </div>
+                    </div><div class="owl-item" style="width: 226.667px; margin-right: 10px;">
+                        <div class="item moveUp animated">
+                            <a href="https://tourre.vn/thai-nguyen/"> <img src="https://tourre.vn/wp-content/uploads/2020/12/kham-pha-ho-nui-coc-thai-nguyen.jpg"></a>
+                            <p><a href="https://tourre.vn/thai-nguyen/">Thái Nguyên </a></p>
+                        </div>
+                    </div><div class="owl-item" style="width: 226.667px; margin-right: 10px;">
+                        <div class="item moveUp animated">
+                            <a href="https://tourre.vn/thanh-hoa/"> <img src="https://tourre.vn/wp-content/uploads/2020/11/thanh-hoa.jpg"></a>
+                            <p><a href="https://tourre.vn/thanh-hoa/">Thanh Hóa </a></p>
+                        </div>
+                    </div><div class="owl-item cloned" style="width: 226.667px; margin-right: 10px;">
+                        <div class="item moveUp animated">
+                            <a href="https://tourre.vn/da-nang/"> <img src="https://tourre.vn/wp-content/uploads/2020/11/da-nang.jpg"></a>
+                            <p><a href="https://tourre.vn/da-nang/">Đà Nẵng </a></p>
+                        </div>
+                    </div><div class="owl-item cloned" style="width: 226.667px; margin-right: 10px;">
+                        <div class="item moveUp animated">
+                            <a href="https://tourre.vn/ha-giang/"> <img src="https://tourre.vn/wp-content/uploads/2020/11/ha-giang.jpg"></a>
+                            <p><a href="https://tourre.vn/ha-giang/">Hà Giang </a></p>
+                        </div>
+                    </div><div class="owl-item cloned" style="width: 226.667px; margin-right: 10px;">
+                        <div class="item moveUp animated">
+                            <a href="https://tourre.vn/ha-nam/"> <img src="https://tourre.vn/wp-content/uploads/2020/12/chua-tam-chuc.jpg"></a>
+                            <p><a href="https://tourre.vn/ha-nam/">Hà Nam </a></p>
+                        </div>
+                    </div><div class="owl-item cloned" style="width: 226.667px; margin-right: 10px;">
+                        <div class="item moveUp animated">
+                            <a href="https://tourre.vn/ha-noi/"> <img src="https://tourre.vn/wp-content/uploads/2020/11/ha-noi.jpg"></a>
+                            <p><a href="https://tourre.vn/ha-noi/">Hà Nội </a></p>
+                        </div>
+                    </div><div class="owl-item cloned" style="width: 226.667px; margin-right: 10px;">
+                        <div class="item moveUp animated">
+                            <a href="https://tourre.vn/moc-chau/"> <img src="https://tourre.vn/wp-content/uploads/2020/11/moc-chau.jpg"></a>
+                            <p><a href="https://tourre.vn/moc-chau/">Mộc Châu </a></p>
+                        </div>
+                    </div><div class="owl-item cloned" style="width: 226.667px; margin-right: 10px;">
+                        <div class="item moveUp animated">
+                            <a href="https://tourre.vn/nha-trang/"> <img src="https://tourre.vn/wp-content/uploads/2020/11/phu-quoc.jpg"></a>
+                            <p><a href="https://tourre.vn/nha-trang/">Nha Trang </a></p>
+                        </div>
+                    </div>
+                </div>
+            </div><div class="owl-nav"><div class="owl-prev"><i class="fa fa-caret-left"></i></div><div class="owl-next"><i class="fa fa-caret-right"></i></div></div><div class="owl-dots"><div class="owl-dot"><span></span></div><div class="owl-dot active"><span></span></div><div class="owl-dot"><span></span></div><div class="owl-dot"><span></span></div></div>
+        </div>
+    </div>
+</div>
