@@ -17,6 +17,7 @@ namespace TTTN_Travel.Models
         }
 
         public virtual DbSet<Addmin> Admin { get; set; }
+        public virtual DbSet<User> User { get; set; }
         public virtual DbSet<Dattour> Dattour { get; set; }
         public virtual DbSet<Kh> Kh { get; set; }
         public virtual DbSet<Tour> Tour { get; set; }
@@ -24,7 +25,6 @@ namespace TTTN_Travel.Models
         public virtual DbSet<Tintuc> Tintuc { get; set; }
         public virtual DbSet<Tout> Tout { get; set; }
         public virtual DbSet<Statistical> Statistical { get; set; }
-        public IEnumerable<object> Statisticals { get; internal set; }
 
         /*protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
@@ -57,12 +57,48 @@ namespace TTTN_Travel.Models
                     .HasColumnName("USERNAME")
                     .HasMaxLength(50);
             });
+            modelBuilder.Entity<User>(entity =>
+            {
+                entity.HasKey(e => e.Id);
+
+                entity.ToTable("USER");
+
+                entity.Property(e => e.Id).HasColumnName("ID");
+
+                entity.Property(e => e.Image)
+                    .HasColumnName("IMAGE")
+                    .HasMaxLength(50);
+
+                entity.Property(e => e.Pass)
+                    .HasColumnName("PASS")
+                    .HasMaxLength(50);
+
+                entity.Property(e => e.Username)
+                    .HasColumnName("USERNAME")
+                    .HasMaxLength(50);
+
+                entity.Property(e => e.Email)
+                    .HasColumnName("EMAIL")
+                    .HasMaxLength(50);
+                entity.Property(e => e.Cmt)
+                    .HasColumnName("CMT")
+                    .HasMaxLength(50);
+                entity.Property(e => e.Phone)
+                    .HasColumnName("PHONE")
+                    .HasMaxLength(10);
+                entity.Property(e => e.Adress)
+                    .HasColumnName("ADRESS")
+                    .HasMaxLength(50);
+                entity.Property(e => e.Name)
+                    .HasColumnName("NAME")
+                    .HasMaxLength(50);
+                entity.Property(e => e.Gt)
+                    .HasColumnName("GENDER");
+            });
 
             modelBuilder.Entity<Statistical>(entity =>
             {
-                entity.HasKey(e => e.ID);
-
-                entity.ToTable("STATISTICAL");
+                entity.ToTable("Statistical");
 
                 entity.Property(e => e.ID).HasColumnName("ID");
                 entity.Property(e => e.Visit).HasColumnName("VISIT");
@@ -104,11 +140,21 @@ namespace TTTN_Travel.Models
                     .HasMaxLength(15);
 
                 entity.Property(e => e.Songuoi).HasColumnName("SONGUOI");
+                entity.Property(e => e.Treem).HasColumnName("TREEM");
 
                 entity.Property(e => e.Tentuor)
                     .IsRequired()
                     .HasColumnName("TENTUOR")
                     .HasMaxLength(50);
+
+                entity.Property(e => e.Thanhtien)
+                    .IsRequired()
+                    .HasColumnName("THANHTIEN")
+                    .HasMaxLength(50);
+                entity.Property(e => e.Trangthai)
+                   .IsRequired()
+                   .HasColumnName("TRANGTHAI")
+                   .HasMaxLength(50);
             });
 
             modelBuilder.Entity<Kh>(entity =>
@@ -174,6 +220,10 @@ namespace TTTN_Travel.Models
                     .HasColumnName("TENTUOR")
                     .HasMaxLength(150);
 
+                entity.Property(e => e.Giatre)
+                    .HasColumnName("GIATRE")
+                    .HasMaxLength(50);
+
                 entity.Property(e => e.Trongnuoc).HasColumnName("TRONGNUOC");
             });
 
@@ -203,6 +253,9 @@ namespace TTTN_Travel.Models
                     .HasColumnName("DATE")
                     .HasColumnType("datetime");
 
+                entity.Property(e => e.Giatre)
+                    .HasColumnName("GIATRE")
+                    .HasMaxLength(50);
 
                 entity.Property(e => e.Chitiet)
                     .HasColumnName("CHITIET")

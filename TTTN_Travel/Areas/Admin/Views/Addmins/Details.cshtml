@@ -1,5 +1,5 @@
 ﻿@model TTTN_Travel.Models.Addmin
-
+@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
 @{
     ViewData["Title"] = "Details";
     Layout = "~/Areas/Admin/Views/Shared/_Layout_Admin.cshtml";
@@ -27,11 +27,11 @@
             @Html.DisplayNameFor(model => model.Image)
         </dt>
         <dd>
-            @Html.DisplayFor(model => model.Image)
+            <img style="width:200px;height:200px " src="~/images/@Html.DisplayFor(model => model.Image)" />
         </dd>
     </dl>
 </div>
 <div>
-    <a asp-action="Edit" asp-route-id="@Model.Idad">Edit</a> |
+    <a asp-action="Edit" asp-route-id="@Model.Idad" class="btn btn-primary btn-sm btn-block"><i class="far fa-edit"></i>Edit</a>
     <a asp-action="Index">Back to List</a>
 </div>

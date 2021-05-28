@@ -34,7 +34,7 @@
             @Html.DisplayNameFor(model => model.Mota)
         </dt>
         <dd>
-            @Html.DisplayFor(model => model.Mota)
+            @Html.Raw(Model.Mota)
         </dd>
         <dt>
             @Html.DisplayNameFor(model => model.Gia)
@@ -100,18 +100,17 @@
                         <div class="tab-content">
                             <div role="tabpanel" class="tab-pane active content-p" id="home1">
                                 <ul class="tour-highlight">
-                                    <h2><strong><span style="font-size: 14pt; color: #000000;">Tour du lịch 5 ngày 4 đêm Hà Nội – chùa Bái Đính – Tràng An – Hạ Long – Sapa – Fansipan trọn gói giá rẻ</span></strong></h2>
-                                    <p><span style="font-size: 10pt;">Combo tour Hà Nội Tràng An Hạ Long Sapa 5 ngày 4 đêm được thiết kế riêng cho khách hàng khi có lịch trình thăm quan Hà Nội cố định. Combo giúp khách hàng tiết kiệm thời gian và chi phí. Combo đã bao gồm hầu hết các dịch vụ như đưa đón sân bay, khách sạn và tour thăm quan. Điểm thăm quan nổi bật trong chương trình là Hà Nội, chùa Bái Đính, Tràng An, Hạ Long, Hàm Rồng, Fansipan. Bên cạnh đó quý khách cũng có thời gian tự do thăm quan phố cổ Hà Nội với những nét văn hóa ẩm thực thu hút. Chuyến thăm quan Hà Nội chưa bao giờ dễ dàng đến thế với combo Hà Nội 5 ngày 4 đêm.</span></p>
-                                    <div id="attachment_2622" style="width: 760px" class="wp-caption alignnone"><img aria-describedby="caption-attachment-2622" loading="lazy" class="size-full wp-image-2622" src="https://tourre.vn/wp-content/uploads/2020/12/du-lich-sapa-thang-10-mua-san-may.jpg" alt="Du lịch Sapa tháng 10 mùa săn mây" width="750" height="415" srcset="https://tourre.vn/wp-content/uploads/2020/12/du-lich-sapa-thang-10-mua-san-may.jpg 750w, https://tourre.vn/wp-content/uploads/2020/12/du-lich-sapa-thang-10-mua-san-may-300x166.jpg 300w" sizes="(max-width: 750px) 100vw, 750px"><p id="caption-attachment-2622" class="wp-caption-text"><span style="font-size: 10pt;"><em>Ninh Bình – Hạ Long – Sapa là các điểm đến hấp dẫn nhất tại miền Bắc&nbsp;</em></span></p></div>
-                                    <h3><strong><span style="font-size: 12pt;">Điểm nổi bật tour Hà Nội Ninh Bình Hạ Long Sapa 5 ngày 4 đêm</span></strong></h3>
+                                    <h2><strong><span style="font-size: 14pt; color: #000000;">@Html.DisplayFor(model => model.Tentuor)</span></strong></h2>
+                                    <p><span style="font-size: 10pt;"> @Html.Raw(Model.Mota).</span></p>
+                                    <div id="attachment_2622" style="width: 760px" class="wp-caption alignnone"><img aria-describedby="caption-attachment-2622" loading="lazy" class="size-full wp-image-2622" src="~/images/@Html.DisplayFor(model => model.Image)" alt="" width="750" height="415"  sizes="(max-width: 750px) 100vw, 750px"><p id="caption-attachment-2622" class="wp-caption-text"><span style="font-size: 10pt;"><em>Ảnh minh họa&nbsp;</em></span></p></div>
+                                    <h3><strong><span style="font-size: 12pt;">Điểm nổi bật @Html.DisplayFor(model => model.Tentuor)</span></strong></h3>
                                     <ul>
                                         <li><span style="font-size: 10pt;"><em>Xe riêng đón tiễn sân bay </em></span></li>
-                                        <li><span style="font-size: 10pt;"><em>Khách sạn tiêu chuẩn 3 sao vị trí tại trung tâm. Chất lượng dịch vụ tốt</em></span></li>
+                                        <li><span style="font-size: 10pt;"><em>Khách sạn tiêu chuẩn . Chất lượng dịch vụ tốt</em></span></li>
                                         <li><span style="font-size: 10pt;"><em>Lịch trình linh hoạt, thay đổi dễ dàng </em></span></li>
                                     </ul>
-                                    <h2><strong><span style="font-size: 14pt;">Chương trình chi tiết tour Hà Nội Ninh Bình Hạ Long Sapa 5 ngày 4 đêm</span></strong></h2>
                                 </ul>
-                                <div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
+                                <!-- Lich trinh chi tiết
                                     <div class="panel panel-default">
                                         <div class="panel-heading" role="tab" id="heading1">
                                             <div class="h4 panel-title">
@@ -249,6 +248,9 @@
                                             </div>
                                         </div>
                                     </div>
+    -->
+                                <div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
+
                                     <div class="chu-y">
                                         <p><span style="font-size: 12pt;"><strong><em>Chính sách trẻ em:</em></strong></span></p>
                                         <ul>
@@ -277,103 +279,17 @@
                                         </ul>
                                     </div>
                                 </div>
-                                <div class="box-mobile-tab">
-                                    <div class="baogia">
-                                        <div class="h3">Bảng báo giá dịch vụ</div>
-                                        <p>Lựa chọn dịch vụ bạn muốn sử dụng.</p>
-                                    </div>
-                                    <div class="box-one">
-
-                                        <div class="col-md-6 dv-one">
-                                            Loại dịch vụ
-                                        </div>
-                                        <div class="col-md-2 dv-one">
-                                            Số lượng
-                                        </div>
-                                        <div class="col-md-2 dv-one">
-                                            Chi phí
-                                        </div>
-                                        <div class="col-md-2 dv-one">
-                                            Tổng chi phí
-                                        </div>
-                                    </div>
-
-                                    <div class="box-two">
-                                        <b>Tour mặc định</b><br>
-                                        <div class="col-md-6 dv-two">
-                                            <p>
-                                                <input class="abc" id="myCheckbox" name="name" type="checkbox" value="3690000" checked="" disabled=""> @Html.DisplayFor(model => model.Tentuor)
-                                            </p>
-                                        </div>
-                                        <div class="col-md-2 dv-two">
-                                            <p class="dv-text"> 1 người </p>
-                                        </div>
-                                        <div class="col-md-2 dv-two two-1-mb">
-                                            <p class="dv-text">
-                                                3.690.000đ
-                                            </p>
-                                        </div>
-                                        <div class="col-md-2 dv-two">
-                                            <p class="dv-text active-price"> 3.690.000đ </p>
-                                        </div>
-                                    </div>
-
-                                    <div class="box-two">
-                                        <b>Dịch vụ tùy chọn</b><br>
-                                        <div class="col-md-6 dv-two">
-                                            <p>
-                                                <input class="checkbox" id="1" type="checkbox" data-price="1200000"> Phụ phí phòng đơn
-                                            </p>
-                                        </div>
-                                        <div class="col-md-2 dv-two">
-                                            <p class="dv-text">   người </p>
-                                        </div>
-                                        <div class="col-md-2 dv-two two-2-mb">
-                                            <p class="dv-text"> 1.200.000đ </p>
-                                        </div>
-                                        <div class="col-md-2 dv-two">
-                                            <p id="tong-tien1" class="dv-text">  1.200.000đ </p>
-                                        </div>
-                                    </div>
-
-                                    <div class="box-two" style="display: none">
-                                        <b>Dịch vụ thêm</b><br>
-                                        <div class="col-md-6 dv-two">
-                                            <p>
-                                                <input class="checkbox dv-them" id="4" type="checkbox" data-price="500000"> Luxury Limousine Bus Round Trip HN-HL-HN
-                                            </p>
-
-                                        </div>
-                                        <div class="col-md-2 dv-two">
-                                            <div class="form-group">
-                                                <input class="checkbox" id="number" type="number" value="1" readonly="">
-                                            </div>
-                                        </div>
-                                        <div class="col-md-2 dv-two">
-                                            <p class="dv-text"> <span class="price3">0</span> </p>
-
-                                        </div>
-                                        <div class="col-md-2 dv-two">
-                                            <p id="them-moi1" class="dv-text"> 500.000đ </p>
-
-                                        </div>
-                                    </div>
-
-                                    <div class="total-price">
-                                        <b>Tổng chi phí</b>: <span class="price2">3.690.000đ</span>
-                                    </div>
-
-                                </div>
+                                
                                 <div class="box-wys-more">
                                     <div class="content-add-more">
                                         <p>
                                         </p><p><span style="font-size: 10pt;"><strong>THAM KHẢO CÁC TOUR LIÊN QUAN:</strong></span></p>
-                                            <ul>
-                                                @foreach (var i in ViewBag.listTour)
-                                                {
+                                        <ul>
+                                            @foreach (var i in ViewBag.listTour)
+                                            {
                                                 <li><span style="font-size: 10pt;"><a href="/Tour/Details?Id=@i.Idtour">@i.Tentuor</a></span></li>
-                                                }
-                                            </ul>
+                                            }
+                                        </ul>
                                         <p></p>
                                     </div>
                                 </div>
@@ -381,64 +297,15 @@
                             </div>
                             <div role="tabpanel" class="tab-pane content-p" id="home2">
                                 <div class="content hotel-detail-desc padding-top-0">
-                                    <h2><strong><span style="font-size: 14pt;">Lịch trình chi tiết combo tour Hà Nội Ninh Bình Hạ Long Sapa 5 ngày 4 đêm:</span></strong></h2>
-                                    <p><span style="font-size: 10pt;">Ngày 1 xe đón quý khách tại sân bay Nội Bài. Quý khách chỉ cần cung cấp thông tin chuyến bay, lái xe sẽ sẵn sàng đợi quý khách tại sân bay sau đó đưa quý khách về khách sạn. Xe vận chuyển của Tourre.vn được lựa chọn là xe đời mới rộng rãi sạch sẽ, lái xe tận tình chuyên nghiệp. Tùy vào số lượng khách hàng mà Tourre.vn sẽ xếp xe phù hợp:</span></p>
+                                    <p><span style="font-size: 10pt;"> Tùy vào số lượng khách hàng mà Tourre.vn sẽ xếp xe phù hợp:</span></p>
                                     <ul>
                                         <li><em><span style="font-size: 10pt;">Nhóm 1 – 4 khách: Xe 4 chỗ</span></em></li>
                                         <li><em><span style="font-size: 10pt;">Nhóm 5 – 6 khách: Xe 7 chỗ</span></em></li>
                                         <li><em><span style="font-size: 10pt;">Nhóm7 – 11 khách: Xe 16 chỗ</span></em></li>
                                     </ul>
                                     <div id="attachment_2421" style="width: 760px" class="wp-caption alignnone"><img aria-describedby="caption-attachment-2421" loading="lazy" class="tour Hà Nội Ninh Bình Hạ Long Sapa wp-image-2421 size-full" title="tour Hà Nội Ninh Bình Hạ Long Sapa" src="https://tourre.vn/wp-content/uploads/2020/12/xe-don-san-bay.jpg" alt="Xe du lịch đi chùa Bái Đính Ninh Bình" width="750" height="542" srcset="https://tourre.vn/wp-content/uploads/2020/12/xe-don-san-bay.jpg 750w, https://tourre.vn/wp-content/uploads/2020/12/xe-don-san-bay-300x217.jpg 300w" sizes="(max-width: 750px) 100vw, 750px"><p id="caption-attachment-2421" class="wp-caption-text"><span style="font-size: 10pt;"><em>Lái xe luôn sẵn sàng đón quý khách tại sân bay</em></span></p></div>
-                                    <p><span style="font-size: 10pt;">Xe đưa quý khách tới khách sạn trong phố cổ Hà Nội. Các khách sạn được lựa chọn đều có vị trí tại trung tâm phố cổ thuận tiện cho quý khách đi thăm quan, mua sắm hay ăn uống. Khách sạn tiêu chuẩn sạch sẽ và được trang bị đầy đủ các thiết bị. Đội ngũ nhân viên khách sạn nhiệt tình chu đáo luôn sẵn sàng hỗ trợ quý khách.</span></p>
-                                    <p><span style="font-size: 10pt;"><strong><em>Lưu ý:</em></strong><em> Thời gian nhận phòng là 14.00. Thời gian trả phòng là 12.00. Quý khách có nhu cầu lấy phòng sớm, trả phòng muộn vui lòng liên hệ nhân viên Tourre.vn để được hỗ trợ </em></span></p>
-                                    <p><span style="font-size: 10pt;">Sau khi nhận phòng quý khách nghỉ ngơi tự do thăm quan Hà Nội.</span></p>
-                                    <div id="attachment_2826" style="width: 760px" class="wp-caption alignnone"><img aria-describedby="caption-attachment-2826" loading="lazy" class="size-full wp-image-2826" src="https://tourre.vn/wp-content/uploads/2020/12/KS-3-sao-ha-noi.jpg" alt="" width="750" height="500" srcset="https://tourre.vn/wp-content/uploads/2020/12/KS-3-sao-ha-noi.jpg 750w, https://tourre.vn/wp-content/uploads/2020/12/KS-3-sao-ha-noi-300x200.jpg 300w" sizes="(max-width: 750px) 100vw, 750px"><p id="caption-attachment-2826" class="wp-caption-text"><em><span style="font-size: 10pt;">Khách sạn tiêu chuẩn 3 sao có vị trí tại trung tâm rất thuận tiện</span></em></p></div>
-                                    <p><span style="font-size: 10pt;">Ngày 2 Hành trình xuất phát từ Hà Nội lúc 7.45 sáng. Xe di chuyển khoảng 2 tiếng từ Hà Nội tới Ninh Bình. Thời gian trên xe là lúc quý khách có thể làm quen với những vị khách cùng đoàn. Đây cũng là lúc hướng dẫn viên công ty sẽ giới thiệu và hướng dẫn cụ thể về lịch trình và những điểm cần lưu ý trong chương trình. Chương trình đưa quý khách tớ thăm quan những địa điểm hấp dẫn nhất tại Ninh Bình</span></p>
-                                    <div id="attachment_2827" style="width: 760px" class="wp-caption alignnone"><img aria-describedby="caption-attachment-2827" loading="lazy" class="size-full wp-image-2827" src="https://tourre.vn/wp-content/uploads/2020/12/xe-29-cho-don-khach.jpg" alt="" width="750" height="469" srcset="https://tourre.vn/wp-content/uploads/2020/12/xe-29-cho-don-khach.jpg 750w, https://tourre.vn/wp-content/uploads/2020/12/xe-29-cho-don-khach-300x188.jpg 300w" sizes="(max-width: 750px) 100vw, 750px"><p id="caption-attachment-2827" class="wp-caption-text"><span style="font-size: 10pt;"><em>Xe đời mới đón quý khách tại điểm hẹn</em></span></p></div>
-                                    <p><span style="font-size: 10pt;">Chùa Bái Đính: được xem là quần thể chùa lớn nhất Việt Nam bao gồm một khu chùa cổ và một khu chùa mới. Khu chùa mới được xây dựng từ năm 2003, chùa Bái Đính mới được xây trên núi giữa những thung lũng mênh mông thẳng cánh cò bay có hồ nước rộng và nhiều núi đá xen kẽ nhau, theo lối kiến ​​trúc mới hoàng tráng đồ sộ đậm nét văn hóa truyền thống trải qua hơn 10 năm xây dựng được hoàn thành vào năm 2015 và đã xác lập rất nhiều kỷ lục trong nước cũng như trên toàn Châu Á vì vậy nơi đây đã sớm trở thành điểm đến của tâm linh thu hút đông đảo du khách gần xa mỗi dịp tết đến xuân về.</span></p>
-                                    <div id="attachment_1125" style="width: 760px" class="wp-caption alignnone"><img aria-describedby="caption-attachment-1125" loading="lazy" class="size-full wp-image-1125" src="https://tourre.vn/wp-content/uploads/2020/11/toan-canh-chua-bai-dinh.jpg" alt="Toàn cảnh chùa Bái Đính Ninh Bình" width="750" height="450" srcset="https://tourre.vn/wp-content/uploads/2020/11/toan-canh-chua-bai-dinh.jpg 750w, https://tourre.vn/wp-content/uploads/2020/11/toan-canh-chua-bai-dinh-300x180.jpg 300w" sizes="(max-width: 750px) 100vw, 750px"><p id="caption-attachment-1125" class="wp-caption-text"><span style="font-size: 10pt;"><em>Toàn cảnh chùa Bái Đính Ninh Bình</em></span></p></div>
-                                    <p><span style="font-size: 10pt;">Bữa trưa được phục vụ tại nhà hàng địa phương với những món đặc sản của Ninh Bình như thịt dê, cơm cháy.</span></p>
-                                    <p><span style="font-size: 10pt;">Tràng An: Quần thể danh thắng Tràng An thuộc địa phận tỉnh Ninh Bình là quần thể danh thắng kép được UNESCO công nhận là di sản thế giới từ năm 2014. Tràng An được coi như là một trong những vùng có cảnh quan núi đá vôi đẹp nhất thế giới. Sự phong phú đa dạng về địa chất, thảm thực vật … mang lại cho Tràng An một vẻ đẹp sống động quyến rũ.</span></p>
-                                    <div id="attachment_1276" style="width: 760px" class="wp-caption alignnone"><img aria-describedby="caption-attachment-1276" loading="lazy" class="tour Hà Nội Ninh Bình Hạ Long Sapa wp-image-1276 size-full" title="tour Hà Nội Ninh Bình Hạ Long Sapa" src="https://tourre.vn/wp-content/uploads/2020/11/cheo-thuyen-trang-an.jpg" alt="Thuyền du lịch Tràng An" width="750" height="450" srcset="https://tourre.vn/wp-content/uploads/2020/11/cheo-thuyen-trang-an.jpg 750w, https://tourre.vn/wp-content/uploads/2020/11/cheo-thuyen-trang-an-300x180.jpg 300w" sizes="(max-width: 750px) 100vw, 750px"><p id="caption-attachment-1276" class="wp-caption-text"><span style="font-size: 10pt;"><em>Thuyền thăm quan Tràng An Ninh Bình</em></span></p></div>
-                                    <p><span style="font-size: 10pt;">Xe đạp: Quý khách có thời gian rảnh đừng bỏ lỡ cơ hội đạp xe thăm quan khu vực Ninh Bình. Dạo quanh những xóm làng đơn sơ, đạp quanh những con đường sỏi đá, ngắm nhìn núi non trùng điệp là điều không thể bỏ qua khi tới thăm&nbsp; Ninh Bình. Hướng dẫn viên của chúng tôi luôn sẵn sàng hướng dẫn bạn bất kỳ lúc nào.</span></p>
-                                    <div id="attachment_1278" style="width: 760px" class="wp-caption alignnone"><img aria-describedby="caption-attachment-1278" loading="lazy" class="size-full wp-image-1278" src="https://tourre.vn/wp-content/uploads/2020/11/dap-xe-ninh-binh.jpg" alt="Đạp xe tại Ninh Bình - Trải nghiệm không nên bỏ lỡ" width="750" height="450" srcset="https://tourre.vn/wp-content/uploads/2020/11/dap-xe-ninh-binh.jpg 750w, https://tourre.vn/wp-content/uploads/2020/11/dap-xe-ninh-binh-300x180.jpg 300w" sizes="(max-width: 750px) 100vw, 750px"><p id="caption-attachment-1278" class="wp-caption-text"><span style="font-size: 10pt;"><em>Đạp xe tại Ninh Bình – Trải nghiệm không nên bỏ lỡ</em></span></p></div>
-                                    <p><span style="font-size: 10pt;">Ngày 3 là chương trình thăm quan vịnh Hạ Long trên du thuyền VIP. Xe và hướng dẫn viên đón quý khách tại khách sạn sau đó di chuyển tới Hạ Long. &nbsp;Xe ô tô đưa đón quý khách từ Hà Nội tới Hạ Long là xe du lịch đời mới chất lượng cao. Hướng dẫn viên và lái xe luôn sẵn sàng hỗ trợ quý khách bất kỳ lúc nào.</span></p>
-                                    <p><span style="font-size: 10pt;">Tàu thăm vịnh Hạ Long là tàu thép có thiết kế hiện đại trẻ trung với sức chứa lớn và không gian rộng rãi. Trên tàu có nhiều không gian riêng để quý khách thư giãn ngắm cảnh. Lịch trình thăm quan 6 tiếng trên vịnh giúp quý khách ghé thăm những địa điểm hấp dẫn nhất của vịnh Hạ Long</span></p>
-                                    <div id="attachment_1050" style="width: 760px" class="wp-caption alignnone"><img aria-describedby="caption-attachment-1050" loading="lazy" class="tour Hà Nội Ninh Bình Hạ Long Sapa wp-image-1050 size-full" title="tour Hà Nội Ninh Bình Hạ Long Sapa" src="https://tourre.vn/wp-content/uploads/2020/11/du-thuyen-tham-vinh-ha-long.jpg" alt="Tour Hạ Long 1 ngày tàu thăm vịnh" width="750" height="450" srcset="https://tourre.vn/wp-content/uploads/2020/11/du-thuyen-tham-vinh-ha-long.jpg 750w, https://tourre.vn/wp-content/uploads/2020/11/du-thuyen-tham-vinh-ha-long-300x180.jpg 300w" sizes="(max-width: 750px) 100vw, 750px"><p id="caption-attachment-1050" class="wp-caption-text"><span style="font-size: 10pt;">Tàu ghép du lịch Hạ Long trong ngày</span></p></div>
-                                    <p><span style="font-size: 10pt;"><strong>Đảo Titop</strong> mang tên người anh hùng vũ trụ Gherman Titov. Đảo được chủ tịch Hồ Chí Minh đặt tên. Bạn có thể thỏa thích bơi lội trên bãi biển hoặc thử thách bản thân với hoạt động leo núi. Đỉnh Titov 400 bậc sẽ khá hiểm trở nhưng thành quả đạt được khi leo lên đỉnh chắc chắn không làm bạn thất vọng</span></p>
-                                    <div id="attachment_1077" style="width: 760px" class="wp-caption alignnone"><img aria-describedby="caption-attachment-1077" loading="lazy" class="size-full wp-image-1077" src="https://tourre.vn/wp-content/uploads/2020/11/titop.jpg" alt="Đảo Ti Tốp Hạ Long" width="750" height="450" srcset="https://tourre.vn/wp-content/uploads/2020/11/titop.jpg 750w, https://tourre.vn/wp-content/uploads/2020/11/titop-300x180.jpg 300w" sizes="(max-width: 750px) 100vw, 750px"><p id="caption-attachment-1077" class="wp-caption-text"><span style="font-size: 10pt;"><em>Đảo Ti Tốp Hạ Long</em></span></p></div>
-                                    <p><span style="font-size: 10pt;"><strong>Chèo kayak ở Hang Luồn:</strong> Một hoạt động vô cùng thú vị khi trải nghiệm du thuyền đó chính là chèo kayak. Tự mình chèo kayak quanh các hòn núi, luồn lách vào trong hang là điều tuyệt vời mà bạn không nên bỏ lỡ. Ngoài ra trên thuyền còn có dịch vụ ngồi thuyền nan thăm hang dành cho những du khách không muốn tự mình chèo thuyền. Nếu may mắn bạn có thể thấy những bầy khỉ đang tự do leo trèo trên vách núi.</span></p>
-                                    <div id="attachment_1060" style="width: 760px" class="wp-caption alignnone"><img aria-describedby="caption-attachment-1060" loading="lazy" class="tour Hà Nội Ninh Bình Hạ Long Sapa wp-image-1060 size-full" title="tour Hà Nội Ninh Bình Hạ Long Sapa" src="https://tourre.vn/wp-content/uploads/2020/11/cheo-kayak-vinh-ha-long.jpg" alt="Chèo Kayak tại Hạ Long" width="750" height="450" srcset="https://tourre.vn/wp-content/uploads/2020/11/cheo-kayak-vinh-ha-long.jpg 750w, https://tourre.vn/wp-content/uploads/2020/11/cheo-kayak-vinh-ha-long-300x180.jpg 300w" sizes="(max-width: 750px) 100vw, 750px"><p id="caption-attachment-1060" class="wp-caption-text"><span style="font-size: 10pt;"><em>Chèo Kayak tại Hạ Long – trải nghiệm tuyệt vời</em></span></p></div>
-                                    <p><span style="font-size: 10pt;"><strong>Hang Sửng Sốt</strong> là hang động lớn nhất tại vịnh Hạ Long và được chia làm 3 ngăn. Quý khách được đi từ bất ngờ này tới bất ngờ khác khi lần lượt thăm quan từng ngăn trong hang. Những măng đá, nhũ đã với nhiều hình thù đặc sắc chắc chắn sẽ khiến bạn ấn tượng. Ngoài ra khung cảnh từ trên đỉnh hang nhìn xuống cũng rất đẹp.</span></p>
-                                    <div id="attachment_1063" style="width: 760px" class="wp-caption alignnone"><img aria-describedby="caption-attachment-1063" loading="lazy" class="size-full wp-image-1063" src="https://tourre.vn/wp-content/uploads/2020/11/hang-sungsot.jpg" alt="Hang Sửng Sốt - Hang động lớn nhất tại vịnh Hạ Long" width="750" height="450" srcset="https://tourre.vn/wp-content/uploads/2020/11/hang-sungsot.jpg 750w, https://tourre.vn/wp-content/uploads/2020/11/hang-sungsot-300x180.jpg 300w" sizes="(max-width: 750px) 100vw, 750px"><p id="caption-attachment-1063" class="wp-caption-text"><span style="font-size: 10pt;"><em>Hang Sửng Sốt – Hang động lớn nhất tại vịnh Hạ Long</em></span></p></div>
-                                    <p><span style="font-size: 10pt;">Ngày 4 + 5 quý khách có chuyến thăm quan đầu tiên tới Sapa. xe bắt đầu xuất phát từ Hà Nội lúc 7.00 giờ sáng. Quý khách vui lòng có mặt tại điểm hẹn trước 7.00 để kịp làm các thủ tục lên xe để khởi hành. Xe ô tô đưa đón quý khách từ Hà Nội tới Sapa là xe giường nằm cao cấp. Xe chuyên phục vụ khách du lịch nên dịch vụ của nhà xe cũng tốt hơn các loại xe khách khác. Trên xe có phục vụ nước uống, wifi. Điểm đón khách cũng ở vị trí thuận tiện với các khách sạn trong phố cổ Hà Nội. Trên xe có phụ xe luôn sẵn sáng giúp đỡ quý khách</span></p>
-                                    <p><span style="font-size: 10pt;">Thời gian di chuyển tử Hà Nội đến Sapa khoảng 5 tiếng rưỡi. Xe sẽ dừng ở những điểm nghỉ chân dọc đường để quý khách nghỉ ngơi.</span></p>
-                                    <p><span style="font-size: 10pt;">Lịch trình xe Hà Nội – Sapa – Hà Nội cố định khởi hành từ Hà Nội lúc 7.00 sáng và từ Sapa về Hà Nội lúc 15.30. Tuy nhiên Tourre.vn có thể hỗ trợ quý khách thay đổi giờ xe chạy phù hợp với nhu cầu.</span></p>
-                                    <p><span style="font-size: 10pt;"><strong><em>Giờ khởi hành:</em></strong></span></p>
-                                    <ul>
-                                        <li><span style="font-size: 10pt;"><em>Hà Nội – Sapa : 07h00, 13h30, 21h30</em></span></li>
-                                        <li><span style="font-size: 10pt;"><em>Sapa – Hà Nội : 08h00, 13h30, 16h00, 21h30</em></span></li>
-                                    </ul>
-                                    <div id="attachment_2428" style="width: 760px" class="wp-caption alignnone"><img aria-describedby="caption-attachment-2428" loading="lazy" class="tour Hà Nội Ninh Bình Hạ Long Sapa wp-image-2428 size-full" title="tour Hà Nội Ninh Bình Hạ Long Sapa" src="https://tourre.vn/wp-content/uploads/2020/12/xe-giuong-nam-sapa.png" alt="" width="750" height="444" srcset="https://tourre.vn/wp-content/uploads/2020/12/xe-giuong-nam-sapa.png 750w, https://tourre.vn/wp-content/uploads/2020/12/xe-giuong-nam-sapa-300x178.png 300w" sizes="(max-width: 750px) 100vw, 750px"><p id="caption-attachment-2428" class="wp-caption-text"><span style="font-size: 10pt;"><em>Quý khách di chuyển tới Sapa bằng xe giường nằm cao cấp</em></span></p></div>
-                                    <p><span style="font-size: 10pt;">Tới Sapa nhân viên của Tourre sẽ đón quý khách và giới thiệu qua về lịch trình tour. Quý khách dùng bữa trưa tại nhà hàng sau đó quý khách nhận phòng nghỉ ngơi. Khách sạn tại Sapa có vị trí tại trung tâm thuận tiện đi lại. Tất cả các khách sạn được lựa chọn kỹ càng với phòng ốc sạch sẽ đầy đủ các tiện nghi như wifi, điều hòa nhiệt độ, TV …</span></p>
-                                    <p><span style="font-size: 10pt;">Hướng dẫn viên sẽ có mặt tại khách sạn và đón quý khách đi thăm các điểm du lịch trong chương trình. Điểm đặc biệt là phần lớn các hướng dấn viên đều là người dân tộc thiểu số như người Hmong, Dáy … Điều này không chỉ khiến các thông tin có tính thực tế cao mà còn là 1 trải nghiệm thú vị không dễ có với mỗi du khách.</span></p>
-                                    <div id="attachment_1322" style="width: 760px" class="wp-caption alignnone"><img aria-describedby="caption-attachment-1322" loading="lazy" class="tour Hà Nội Ninh Bình Hạ Long Sapa wp-image-1322 size-full" title="tour Hà Nội Ninh Bình Hạ Long Sapa" src="https://tourre.vn/wp-content/uploads/2020/11/huong-dan-vien-ban-dia-sapa.jpg" alt="Hướng dẫn viên tại Sapa đa phần là người dân tộc" width="750" height="450" srcset="https://tourre.vn/wp-content/uploads/2020/11/huong-dan-vien-ban-dia-sapa.jpg 750w, https://tourre.vn/wp-content/uploads/2020/11/huong-dan-vien-ban-dia-sapa-300x180.jpg 300w" sizes="(max-width: 750px) 100vw, 750px"><p id="caption-attachment-1322" class="wp-caption-text"><span style="font-size: 10pt;"><em>Hướng dẫn viên tại Sapa đa phần là người dân tộc</em></span></p></div>
-                                    <p><span style="font-size: 10pt;"><strong>Các điểm thăm quan trong chương trình tại Sapa:</strong></span></p>
-                                    <p><span style="font-size: 10pt;"><strong>Núi Hàm Rồng: </strong>Nằm trong dãy Hoàng Liên Sơn, sát trung tâm thị trấn Sapa, Núi Hàm Rồng (nghĩa là “hàm của rồng”) là một ngọn núi nằm trong dãy Hoàng Liên Sơn. Núi có độ cao vừa phải, cảnh sắc thiên nhiên hoang sơ, thơ mộng là một trong những địa điểm hấp dẫn nhất Sapa. Hàm Rồng mát mẻ quanh năm, các loài cây cối bốn mùa khoe sắc, đặc biệt là phong lan. Mùa xuân hoa đào nở rộ cũng là thời điểm tuyệt vời để ghé thăm Hàm Rồng. Có thể nói sự đa dạng của các loài hoa cũng chính là điểm thu hút của Hàm Rồng.</span></p>
-                                    <p><span style="font-size: 10pt;">Đường đi lên Hàm Rồng không quá khó nhưng cũng đòi hỏi bạn có sự dẻo dai. Nếu may mắn Đến với núi Hàm Rồng vào ngày thời tiết đẹp bạn có thể ngắm nhìn đỉnh núi Fanxipan từ sa hoặc quan sát toàn bộ thị trấn Sapa từ trên cao.</span></p>
-                                    <p><span style="font-size: 10pt;">Tại Hàm Rồng bạn còn có thể thưởng thức các buổi diễn văn nghệ dân tộc được tổ chức hằng ngày tại khu trung tâm. Du khách cũng có thể tham quan khu trưng bày văn hóa phẩm của đồng bào dân tộc hoặc mặc thử những bộ trang phục của người Hmong, người Dao, Tày …</span></p>
-                                    <div id="attachment_405" style="width: 710px" class="wp-caption alignnone"><img aria-describedby="caption-attachment-405" loading="lazy" class="tour Hà Nội Ninh Bình Hạ Long Sapa wp-image-405 size-full" title="tour Hà Nội Ninh Bình Hạ Long Sapa" src="https://tourre.vn/wp-content/uploads/2020/10/nui-ham-rong-sapa.jpg" alt="Góc ngắm cảnh thị trấn Sapa từ trên núi Hàm Rồng" width="700" height="417" srcset="https://tourre.vn/wp-content/uploads/2020/10/nui-ham-rong-sapa.jpg 700w, https://tourre.vn/wp-content/uploads/2020/10/nui-ham-rong-sapa-300x179.jpg 300w" sizes="(max-width: 700px) 100vw, 700px"><p id="caption-attachment-405" class="wp-caption-text"><span style="font-size: 10pt;"><em>Góc ngắm cảnh thị trấn Sapa từ trên núi Hàm Rồng</em></span></p></div>
-                                    <p><span style="font-size: 10pt;"><strong>Cáp treo Fansipan: &nbsp;</strong>Đỉnh Fansipan được coi là nóc nhà Đông Dương ở độ cao 3.143m. Trước đây đỉnh Fanxipan chỉ dành cho dân du lịch ưa mạo hiểm bởi bạn cần ít nhất 2 ngày để leo tới đỉnh. Đoạn đường leo núi cũng rât hiểm trở băng rừng lội suối. Tuy nhiên tháng 2 ngăm 2016 tuyến cáp treo Fansipan đã chính thức được đưa vào hoạt động và bất kỳ ai cũng có thể chinh phục đỉnh Fansipan một cách dễ dàng.</span></p>
-                                    <p><span style="font-size: 10pt;">Xe và hướng dẫn viên sẽ đưa quý khách đến ga cáp treo để bắt đầu chuyến hành trình. Quý khách cũng có thể tham khảo thêm lựa chọn đi lên ga cáp treo bằng tàu hỏa leo núi. Thời gian tàu di chuyển khoảng 4 phút đi qua 2 hầm và 4 cầu cạn. Ngồi trên tàu hỏa bạn có thể ngắm nhìn vẻ đẹp tuyệt vời của thung lũng Mường Hoa bên dưới.</span></p>
-                                    <div id="attachment_398" style="width: 710px" class="wp-caption alignnone"><img aria-describedby="caption-attachment-398" loading="lazy" class="tour Hà Nội Ninh Bình Hạ Long Sapa wp-image-398 size-full" title="tour Hà Nội Ninh Bình Hạ Long Sapa" src="https://tourre.vn/wp-content/uploads/2020/10/fanxipan-sapa.jpg" alt="" width="700" height="519" srcset="https://tourre.vn/wp-content/uploads/2020/10/fanxipan-sapa.jpg 700w, https://tourre.vn/wp-content/uploads/2020/10/fanxipan-sapa-300x222.jpg 300w" sizes="(max-width: 700px) 100vw, 700px"><p id="caption-attachment-398" class="wp-caption-text"><span style="font-size: 10pt;"><em>Đỉnh Fansipan – Nóc nhà Đông Dương</em></span></p></div>
-                                    <p><span style="font-size: 10pt;">Tuyến cáp treo đưa bạn lên đỉnh 3000m trong 15 phút. Đây là thời gian quý khách có thể ngắm toàn cảnh Sapa từ trên cao, bên dưới là rừng nguyên sinh Hoàng Liên và thung lũng Mường Hoa, càng lên cao thì sự hùng vĩ của núi Hoàng Liên càng trở nên rõ ràng hơn.</span></p>
-                                    <p><span style="font-size: 10pt;">Tuyến cáp treo đưa bạn lên đỉnh 3000m trong 15 phút. Đây là thời gian quý khách có thể ngắm toàn cảnh Sapa từ trên cao, bên dưới là rừng nguyên sinh Hoàng Liên và thung lũng Mường Hoa, càng lên cao thì sự hùng vĩ của núi Hoàng Liên càng trở nên rõ ràng hơn.</span></p>
-                                    <p><span style="font-size: 10pt;">Cáp treo dừng cũng là lúc quý khách bắt đầu đi bộ lên đỉnh Fansipan. 600 bậc thang với độ dốc vừa phải chỉ tốn khoảng 20 – 30 phút là quý khách đã có thể chạm tay vào cột mốc của đỉnh Fansipan, ghi dấu một hành trình đáng nhớ trong đời.</span></p>
-                                    <p><span style="font-size: 10pt;">Thời gian đẹp nhất để khám phá đỉnh Fansipan là tháng 10 và tháng 11. Theo kinh nghiệm thì du khách nên đi cáp treo vào buổi sáng để có nhiều cơ hội săn mây trên đỉnh hơn.</span></p>
-                                    <p><span style="font-size: 10pt;">Ngoài đỉnh Fansipan, trên đường đi bạn cũng được tham quan các cảnh đẹp khác nằm trong khu Fansipan Legend như Vườn tre, Bảo An Thiền Tự, Bích Vân Thiền Tự, nhà hàng, khu mua sắm, và đặc biệt là những vườn hoa khổng lồ, rực rỡ bốn mùa như đồi hoa oải hương tím, thác hoa cải trắng, vườn hoa hướng dương, thung lũng hoa hồng, hoa đỗ quyên đỏ thắm …</span></p>
-                                    <p><span style="font-size: 10pt;">Sau bữa trưa quý khách lên xe giường năm cao cấp về Hà Nội. Xe trả quý khách tại sân bay Nội Bài để làm thủ tục lên chuyến bay. Kết thúc hành trình thăm quan Hà Nội Ninh Bình Hạ Long Sapa đáng nhớ.</span></p>
-                                    <p><span style="font-size: 10pt;">Đặc biệt đội ngũ nhân viên của Tourre.vn có trách nhiệm tư vấn giúp đỡ quý khách trong mọi trường hợp để mang lại cho quý khách những chuyến thăm quan vui vẻ và dễ chịu nhất. Hotline của Tourre.vn hoạt động 24/7 tất cả các ngày trong tuần.</span></p>
-                                    <p><span style="font-size: 10pt;">Combo cơ bản bao gồm các dịch vụ cơ bản trong chương trình. Quý khách có thể tham khảo các dịch vụ nâng hạng sau đây:</span></p>
+                               
+                                    <p><span style="font-size: 10pt;"> Quý khách có thể tham khảo các dịch vụ nâng hạng sau đây:</span></p>
                                     <ul>
                                         <li><span style="font-size: 10pt;"><em>Nâng hạng phòng trong khách sạn</em></span></li>
                                         <li><span style="font-size: 10pt;"><em>Nâng hạng khách sạn lên 4 sao hoặc 5 sao</em></span></li>
@@ -710,7 +577,7 @@
                         <div class="contact-form">
                             <div role="form" class="wpcf7" id="wpcf7-f983-o1" lang="vi" dir="ltr">
                                 <div class="screen-reader-response"><p role="status" aria-live="polite" aria-atomic="true"></p> <ul></ul></div>
-                                <form action="Booking" method="post" class="wpcf7-form init" novalidate="novalidate" data-status="init">
+                                <form action="/Tours/Booking" method="post" class="wpcf7-form init" novalidate="novalidate" data-status="init" enctype="multipart/form-data">
                                     <div style="display: none;">
                                         <input type="hidden" name="_wpcf7" value="983">
                                         <input type="hidden" name="_wpcf7_version" value="5.4">
@@ -720,18 +587,19 @@
                                         <input type="hidden" name="_wpcf7_posted_data_hash" value="">
                                     </div>
                                     <div class="col-xs-6 wow animated slideInLeft" data-wow-delay=".5s">
-                                        <span class="wpcf7-form-control-wrap your-name"><input type="text" name="your-name" value="" size="40" class="wpcf7-form-control wpcf7-text wpcf7-validates-as-required form" aria-required="true" aria-invalid="false" placeholder="Họ và tên"></span><br>
-                                        <span class="wpcf7-form-control-wrap tentour"><input type="text" name="tentour" value="" size="40" class="wpcf7-form-control wpcf7-text wpcf7-validates-as-required form" aria-required="true" aria-invalid="false" placeholder="Tên tour"></span><br>
-                                        <span class="wpcf7-form-control-wrap dienthoai"><input type="text" name="dienthoai" value="" size="40" class="wpcf7-form-control wpcf7-text wpcf7-validates-as-required form" aria-required="true" aria-invalid="false" placeholder="Điện thoại"></span><br>
-                                        <span class="wpcf7-form-control-wrap diachi"><input type="text" name="diachi" value="" size="40" class="wpcf7-form-control wpcf7-text wpcf7-validates-as-required form" aria-required="true" aria-invalid="false" placeholder="Địa chỉ"></span><br>
-                                        <span class="wpcf7-form-control-wrap your-email"><input type="email" name="your-email" value="" size="40" class="wpcf7-form-control wpcf7-text wpcf7-email wpcf7-validates-as-required wpcf7-validates-as-email form" aria-required="true" aria-invalid="false" placeholder="Địa chỉ mail"></span>
+                                        <span class="wpcf7-form-control-wrap your-name"><input  type="text" name="your-name" value="@ViewBag.Ten" size="40" class="wpcf7-form-control wpcf7-text wpcf7-validates-as-required form" aria-required="true" aria-invalid="false" placeholder="Họ và tên"></span><br>
+                                        <span class="wpcf7-form-control-wrap tentour"><input  type="text" name="tentour" value="@Html.DisplayFor(model => model.Tentuor)" size="40" class="wpcf7-form-control wpcf7-text wpcf7-validates-as-required form" aria-required="true" aria-invalid="false" placeholder="Tên tour"></span><br>
+                                        <span class="wpcf7-form-control-wrap dienthoai"><input  type="text" name="dienthoai" value="@ViewBag.Phone" size="40" class="wpcf7-form-control wpcf7-text wpcf7-validates-as-required form" aria-required="true" aria-invalid="false" placeholder="Điện thoại"></span><br>
+                                        <span class="wpcf7-form-control-wrap diachi"><input  type="text" name="diachi" value="@ViewBag.Ad" size="40" class="wpcf7-form-control wpcf7-text wpcf7-validates-as-required form" aria-required="true" aria-invalid="false" placeholder="Địa chỉ"></span><br>
+                                        <span class="wpcf7-form-control-wrap your-email"><input  type="email" name="your-email" value="@ViewBag.Email" size="40" class="wpcf7-form-control wpcf7-text wpcf7-email wpcf7-validates-as-required wpcf7-validates-as-email form" aria-required="true" aria-invalid="false" placeholder="Địa chỉ mail"></span>
                                     </div>
                                     <div class="col-xs-6 wow animated slideInRight" data-wow-delay=".5s">
                                         <p style="margin-top: -30px;">Ngày khởi hành</p>
                                         <p>
-                                            <span class="wpcf7-form-control-wrap khoihanh"><input type="date" name="khoihanh" value="" class="wpcf7-form-control wpcf7-date wpcf7-validates-as-date form" aria-invalid="false" placeholder="Ngày khởi hành"></span><br>
-                                            <span class="wpcf7-form-control-wrap songuoi"><input type="number" name="songuoi" value="" class="wpcf7-form-control wpcf7-number wpcf7-validates-as-number form" aria-invalid="false" placeholder="Số người"></span><br>
-                                            <span class="wpcf7-form-control-wrap ghichu"><textarea name="ghichu" cols="40" rows="10" class="wpcf7-form-control wpcf7-textarea form textarea" aria-invalid="false" placeholder="Ghi chú (trẻ em, tình trạng sức khỏe,...)"></textarea></span>
+                                            <span class="wpcf7-form-control-wrap khoihanh"><input  type="date" name="khoihanh" value="" class="wpcf7-form-control wpcf7-date wpcf7-validates-as-date form" aria-invalid="false" placeholder="Ngày khởi hành"></span><br>
+                                            <span class="wpcf7-form-control-wrap songuoi"><input  type="number" name="songuoi" min="0" value="" class="wpcf7-form-control wpcf7-number wpcf7-validates-as-number form" aria-invalid="false" placeholder="Người lớn"  aria-required="true"></span><br>
+                                            <span class="wpcf7-form-control-wrap songuoi"><input  type="number" name="treem" min="0" value="" class="wpcf7-form-control wpcf7-number wpcf7-validates-as-number form" aria-invalid="false" placeholder="Trẻ em dưới 13 tuổi"  aria-required="true"></span><br>
+                                            <span class="wpcf7-form-control-wrap ghichu"><textarea name="ghichu" cols="40" rows="10" class="wpcf7-form-control wpcf7-textarea form textarea" aria-invalid="false" placeholder="Ghi chú (tình trạng sức khỏe,...)"></textarea></span>
                                         </p>
                                     </div>
                                     <div class="relative fullwidth col-xs-12">
@@ -810,7 +678,7 @@
                                         <i class="fa fa-star"></i>
                                     }
                                 }
-                                <h4><span>3.900.000</span> <b>@i.Gia Vnđ</b></h4>
+                                <h4><b>@i.Gia Vnđ</b></h4>
 
                             </div>
                         </div>

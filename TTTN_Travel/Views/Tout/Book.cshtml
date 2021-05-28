@@ -1,0 +1,116 @@
+﻿@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
+@{
+    ViewData["Title"] = "Booking";
+    Layout = "~/Views/Shared/_Layout_Page.cshtml";
+}
+<div class="box-mobile-tab">
+    <div class="baogia">
+        <div class="h3">Bảng báo giá dịch vụ</div>
+        <p>Lựa chọn dịch vụ bạn muốn sử dụng.</p>
+    </div>
+    <div class="box-one">
+
+        <div class="col-md-6 dv-one">
+            Loại dịch vụ
+        </div>
+        <div class="col-md-2 dv-one">
+            Số lượng
+        </div>
+        <div class="col-md-2 dv-one">
+            Chi phí
+        </div>
+        <div class="col-md-2 dv-one">
+            Tổng chi phí
+        </div>
+    </div>
+
+    <div class="box-two">
+        <b>Tour mặc định</b><br>
+        <div class="col-md-6 dv-two">
+            <p>
+                <input class="abc" id="myCheckbox" name="name" type="checkbox" value="3690000" checked="" disabled=""> @ViewBag.TenT
+            </p>
+        </div>
+        <div class="col-md-2 dv-two">
+            <p class="dv-text"> @ViewBag.SoNg Người</p>
+        </div>
+        <div class="col-md-2 dv-two two-1-mb">
+            <p class="dv-text">
+                @ViewBag.GiaT đ
+            </p>
+        </div>
+        <div class="col-md-2 dv-two">
+            <p class="dv-text active-price"> @ViewBag.TongT đ</p>
+        </div>
+        <div class="col-md-6 dv-two">
+            <p>
+
+            </p>
+        </div>
+        <div class="col-md-2 dv-two">
+            <p class="dv-text"> @ViewBag.TreEM Trẻ em</p>
+        </div>
+        <div class="col-md-2 dv-two two-1-mb">
+            <p class="dv-text">
+                @ViewBag.GiaTr đ
+            </p>
+        </div>
+        <div class="col-md-2 dv-two">
+            <p class="dv-text active-price"> @ViewBag.TongTr đ</p>
+        </div>
+    </div>
+    <!--
+
+    <div class="box-two">
+        <b>Dịch vụ tùy chọn</b><br>
+        <div class="col-md-6 dv-two">
+            <p>
+                <input class="checkbox" id="1" type="checkbox" data-price="1200000"> Phụ phí phòng đơn
+            </p>
+        </div>
+        <div class="col-md-2 dv-two">
+            <p class="dv-text">   người </p>
+        </div>
+        <div class="col-md-2 dv-two two-2-mb">
+            <p class="dv-text"> 1.200.000đ </p>
+        </div>
+        <div class="col-md-2 dv-two">
+            <p id="tong-tien1" class="dv-text">  1.200.000đ </p>
+        </div>
+    </div>
+
+     <div class="box-two" style="display: none">
+        <b>Dịch vụ thêm</b><br>
+        <div class="col-md-6 dv-two">
+            <p>
+                <input class="checkbox dv-them" id="4" type="checkbox" data-price="500000"> Luxury Limousine Bus Round Trip HN-HL-HN
+            </p>
+
+        </div>
+        <div class="col-md-2 dv-two">
+            <div class="form-group">
+                <input class="checkbox" id="number" type="number" value="1" readonly="">
+            </div>
+        </div>
+        <div class="col-md-2 dv-two">
+            <p class="dv-text"> <span class="price3">0</span> </p>
+
+        </div>
+        <div class="col-md-2 dv-two">
+            <p id="them-moi1" class="dv-text"> 500.000đ </p>
+
+        </div>
+    </div>
+    -->
+
+    <div class="total-price">
+        <b>Tổng chi phí</b>: <span class="price2">@ViewBag.TongAll đ</span>
+    </div>
+
+</div>
+<span style="float:right;display:inline;">
+    <input style="background-color:green;" class="btn btn-info btn-block" data-toggle="modal" data-target="#myModal" type="button" value="Xác Nhận" onclick="@(" window.location.href='" + @Url.Action("Index", "Home") + "'");@("window.alert('Đặt tour thành công, Cảm ơn quý khách hàng!')");" />
+    <input style="background-color:red" class="btn btn-info btn-block" data-toggle="modal" data-target="#myModal" type="button" value="Hủy" onclick="@("window.location.href='" + @Url.Action("CancelBook", "Tout") + "'");@("window.alert('Hủy tour thành công! Mời quý khách tiếp tục sử dụng dịch vụ của chúng tôi!')");" />
+</span>
+
+

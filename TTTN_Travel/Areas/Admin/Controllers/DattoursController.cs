@@ -23,8 +23,9 @@ namespace TTTN_Travel.Areas.Admin.Controllers
         // GET: Admin/Dattours
         public async Task<IActionResult> Index()
         {
-            ViewBag.Name = HttpContext.Session.GetString("name");
+            ViewBag.Name = HttpContext.Session.GetString("namead");
             ViewBag.Img = HttpContext.Session.GetString("image");
+            ViewBag.Id = HttpContext.Session.GetString("id");
             ViewBag.Pass = HttpContext.Session.GetString("pass");
             return View(await _context.Dattour.ToListAsync());
         }
@@ -58,7 +59,7 @@ namespace TTTN_Travel.Areas.Admin.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("Hoten,Tentuor,Sdt,Dc,Email,Date,Songuoi,Ghichu,Id")] Dattour dattour)
+        public async Task<IActionResult> Create([Bind("Hoten,Tentuor,Sdt,Dc,Email,Date,Songuoi,Treem,Ghichu,Thanhtien,Id")] Dattour dattour)
         {
             if (ModelState.IsValid)
             {
@@ -90,7 +91,7 @@ namespace TTTN_Travel.Areas.Admin.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("Hoten,Tentuor,Sdt,Dc,Email,Date,Songuoi,Ghichu,Id")] Dattour dattour)
+        public async Task<IActionResult> Edit(int id, [Bind("Hoten,Tentuor,Sdt,Dc,Email,Date,Songuoi,Treem,Ghichu,Thanhtien,Trangthai,Id")] Dattour dattour)
         {
             if (id != dattour.Id)
             {

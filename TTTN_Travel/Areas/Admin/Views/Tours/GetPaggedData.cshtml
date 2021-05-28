@@ -1,0 +1,158 @@
+﻿@model IEnumerable<TTTN_Travel.Models.Tour>
+@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
+@{
+    ViewData["Title"] = "GetPaggedData";
+    Layout = "~/Areas/Admin/Views/Shared/_Layout_Admin.cshtml";
+}
+
+
+<div class="row">
+    <div class="col-xl-12">
+        <div class="breadcrumb-holder">
+            <h1 class="main-title float-left">Tours</h1>
+            <p style="float:right">
+                <a asp-action="Create"><i class="fas fa-plus" aria-hidden="true"></i>Create New</a>
+            </p>
+            <div class="clearfix"></div>
+        </div>
+    </div>
+</div>
+<!-- end row -->
+
+<div class="row">
+
+    <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 col-xl-12">
+        <div class="card-body">
+            <div class="table-responsive">
+                <table id="dataTable" class="table table-bordered table-hover display dataTable no-footer" style="width: 100%;" role="grid" aria-describedby="dataTable_info">
+                    <thead>
+                        <tr>
+                            <th>
+                                @Html.DisplayNameFor(model => model.Tentuor)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.Image)
+                            </th>
+
+                            <th>
+                                @Html.DisplayNameFor(model => model.Gia)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.Quocgia)
+                            </th>
+
+                            <th>
+                                @Html.DisplayNameFor(model => model.Lichtrinh)
+                            </th>
+
+                            <th>Tác vụ</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var item in Model)
+                        {
+                            <tr>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.Tentuor)
+                                </td>
+                                <td>
+                                    <img style="width:200px;height:200px" src="~/images/@Html.DisplayFor(modelItem => item.Image)" />
+                                </td>
+
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.Gia)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.Quocgia)
+                                </td>
+
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.Lichtrinh)
+                                </td>
+                                <td>
+                                    <a asp-action="Edit" asp-route-id="@item.Idtour" class="btn btn-primary btn-sm btn-block"><i class="far fa-edit"></i>Edit</a>
+                                    <a asp-action="Delete" asp-route-id="@item.Idtour" class="btn btn-danger btn-sm btn-block mt-2"><i class="fas fa-trash"></i>Delete</a>
+                                </td>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+                <div id="paged">
+
+                </div>
+            </div>
+            <!-- end table-responsive-->
+
+        </div>
+        <!-- end card-body-->
+
+    </div>
+    <!-- end card-->
+
+</div>
+
+</div>
+<!-- end row-->
+<script>
+    $(document).ready(function () {
+        //Initially load pagenumber=1
+        GetPageData(1);
+    });
+    function GetPageData(pageNum, pageSize) {
+        //After every trigger remove previous data and paging
+        $("#dataTable").empty();
+        $("#paged").empty();
+        $.getJSON("/Tours/GetPaggedData", { pageNumber: pageNum, pageSize: pageSize }, function (response) {
+            var rowData = "";
+            for (var i = 0; i < response.Data.length; i++) {
+                rowData = rowData + '<tr><td>' + response.Data[i].Id + '</td><td>' + response.Data[i].Name + '</td></tr>';
+            }
+            $("#dataTable").append(rowData);
+            PaggingTemplate(response.TotalPages, response.CurrentPage);
+        });
+    }
+    //This is paging temlpate ,you should just copy paste
+    function PaggingTemplate(totalPage, currentPage) {
+        var template = "";
+        var TotalPages = totalPage;
+        var CurrentPage = currentPage;
+        var PageNumberArray = Array();
+
+
+        var countIncr = 1;
+        for (var i = currentPage; i <= totalPage; i++) {
+            PageNumberArray[0] = currentPage;
+            if (totalPage != currentPage && PageNumberArray[countIncr - 1] != totalPage) {
+                PageNumberArray[countIncr] = i + 1;
+            }
+            countIncr++;
+        };
+        PageNumberArray = PageNumberArray.slice(0, 5);
+        var FirstPage = 1;
+        var LastPage = totalPage;
+        if (totalPage != currentPage) {
+            var ForwardOne = currentPage + 1;
+        }
+        var BackwardOne = 1;
+        if (currentPage > 1) {
+            BackwardOne = currentPage - 1;
+        }
+
+        template = "<p>" + CurrentPage + " of " + TotalPages + " pages</p>"
+        template = template + '<ul class="pager">' +
+            '<li class="previous"><a href="#" onclick="GetPageData(' + FirstPage + ')"><i class="fa fa-fast-backward"></i>&nbsp;First</a></li>' +
+            '<li><select ng-model="pageSize" id="selectedId"><option value="20" selected>20</option><option value="50">50</option><option value="100">100</option><option value="150">150</option></select> </li>' +
+            '<li><a href="#" onclick="GetPageData(' + BackwardOne + ')"><i class="glyphicon glyphicon-backward"></i></a>';
+
+        var numberingLoop = "";
+        for (var i = 0; i < PageNumberArray.length; i++) {
+            numberingLoop = numberingLoop + '<a class="page-number active" onclick="GetPageData(' + PageNumberArray[i] + ')" href="#">' + PageNumberArray[i] + ' &nbsp;&nbsp;</a>'
+        }
+        template = template + numberingLoop + '<a href="#" onclick="GetPageData(' + ForwardOne + ')" ><i class="glyphicon glyphicon-forward"></i></a></li>' +
+            '<li class="next"><a href="#" onclick="GetPageData(' + LastPage + ')">Last&nbsp;<i class="fa fa-fast-forward"></i></a></li></ul>';
+        $("#paged").append(template);
+        $('#selectedId').change(function () {
+            GetPageData(1, $(this).val());
+        });
+    }
+</script>

@@ -12,8 +12,9 @@ namespace TTTN_Travel.Areas.Admin.Controllers
         public IActionResult Index()
         {
             HttpContext.Session.Remove("Account");
-            HttpContext.Session.Remove("name");
+            HttpContext.Session.Remove("namead");
             HttpContext.Session.Remove("pass");
+            HttpContext.Session.Remove("id");
             HttpContext.Session.Remove("image");
             //di chuyen den url /Login
             return Redirect("/Login/Index");

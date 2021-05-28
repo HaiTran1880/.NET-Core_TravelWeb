@@ -22,20 +22,32 @@ namespace TTTN_Travel.Areas.Admin.Controllers
         }
 
         // GET: Admin/Addmins
-        public async Task<IActionResult> Index()
+        public async Task <IActionResult> Index(int ? pageNumber)
         {
-            ViewBag.Name = HttpContext.Session.GetString("name");
+            ViewBag.Name = HttpContext.Session.GetString("namead");
             ViewBag.Img = HttpContext.Session.GetString("image");
             ViewBag.Pass = HttpContext.Session.GetString("pass");
-            return View(await _context.Admin.ToListAsync());
-        }
+            ViewBag.Id = HttpContext.Session.GetString("id");
+            ViewBag.Data = _context.Admin.ToListAsync();
+            /*var listAd = _context.Admin.ToList();
+            var pageNumber = page ?? 1;
+            ViewBag.Addmin =listAd.ToPagedList(pageNumber, 2);
 
+            return View();*/
+            pageNumber = 1;
+            var ad = _context.Admin;
+                     
+            int pageSize = 9;
+            return View(await PaginatedList<Addmin>.CreateAsync(ad.AsNoTracking(), pageNumber ?? 1, pageSize)); ;
+        }
+        
         // GET: Admin/Addmins/Details/5
         public async Task<IActionResult> Details(int? id)
         {
-            ViewBag.Name = HttpContext.Session.GetString("name");
+            ViewBag.Name = HttpContext.Session.GetString("namead");
             ViewBag.Img = HttpContext.Session.GetString("image");
             ViewBag.Pass = HttpContext.Session.GetString("pass");
+            ViewBag.Id = HttpContext.Session.GetString("id");
             if (id == null)
             {
                 return NotFound();
@@ -54,9 +66,10 @@ namespace TTTN_Travel.Areas.Admin.Controllers
         // GET: Admin/Addmins/Create
         public IActionResult Create()
         {
-            ViewBag.Name = HttpContext.Session.GetString("name");
+            ViewBag.Name = HttpContext.Session.GetString("namead");
             ViewBag.Img = HttpContext.Session.GetString("image");
             ViewBag.Pass = HttpContext.Session.GetString("pass");
+            ViewBag.Id = HttpContext.Session.GetString("id");
             return View();
         }
 
@@ -67,9 +80,10 @@ namespace TTTN_Travel.Areas.Admin.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Create([Bind("Idad,Username,Passwork,ImageFile")] Addmin addmin)
         {
-            ViewBag.Name = HttpContext.Session.GetString("name");
+            ViewBag.Name = HttpContext.Session.GetString("namead");
             ViewBag.Img = HttpContext.Session.GetString("image");
             ViewBag.Pass = HttpContext.Session.GetString("pass");
+            ViewBag.Id = HttpContext.Session.GetString("id");
             if (ModelState.IsValid)
             {
                 UploadFiles.ImgURL(addmin.ImageFile);
@@ -84,9 +98,10 @@ namespace TTTN_Travel.Areas.Admin.Controllers
         // GET: Admin/Addmins/Edit/5
         public async Task<IActionResult> Edit(int? id)
         {
-            ViewBag.Name = HttpContext.Session.GetString("name");
+            ViewBag.Name = HttpContext.Session.GetString("namead");
             ViewBag.Img = HttpContext.Session.GetString("image");
             ViewBag.Pass = HttpContext.Session.GetString("pass");
+            ViewBag.Id = HttpContext.Session.GetString("id");
             if (id == null)
             {
                 return NotFound();
@@ -107,9 +122,10 @@ namespace TTTN_Travel.Areas.Admin.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Edit(int id, [Bind("Idad,Username,Passwork,Image,ImageFile")] Addmin addmin)
         {
-            ViewBag.Name = HttpContext.Session.GetString("name");
+            ViewBag.Name = HttpContext.Session.GetString("namead");
             ViewBag.Img = HttpContext.Session.GetString("image");
             ViewBag.Pass = HttpContext.Session.GetString("pass");
+            ViewBag.Id = HttpContext.Session.GetString("id");
             if (id != addmin.Idad)
             {
                 return NotFound();
@@ -143,7 +159,8 @@ namespace TTTN_Travel.Areas.Admin.Controllers
         // GET: Admin/Addmins/Delete/5
         public async Task<IActionResult> Delete(int? id)
         {
-            ViewBag.Name = HttpContext.Session.GetString("name");
+            ViewBag.Name = HttpContext.Session.GetString("namead");
+            ViewBag.Id = HttpContext.Session.GetString("id");
             ViewBag.Img = HttpContext.Session.GetString("image");
             ViewBag.Pass = HttpContext.Session.GetString("pass");
             if (id == null)
@@ -166,8 +183,9 @@ namespace TTTN_Travel.Areas.Admin.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(int id)
         {
-            ViewBag.Name = HttpContext.Session.GetString("name");
+            ViewBag.Name = HttpContext.Session.GetString("namead");
             ViewBag.Img = HttpContext.Session.GetString("image");
+            ViewBag.Id = HttpContext.Session.GetString("id");
             ViewBag.Pass = HttpContext.Session.GetString("pass");
             var addmin = await _context.Admin.FindAsync(id);
             //UploadFiles.RemoveImgURL("/Upload/a/" + addmin.Image);

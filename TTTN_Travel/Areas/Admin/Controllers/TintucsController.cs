@@ -8,6 +8,7 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using TTTN_Travel.Models;
 using TTTN_Travel.Models.Global;
+using X.PagedList;
 
 namespace TTTN_Travel.Areas.Admin.Controllers
 {
@@ -25,17 +26,21 @@ namespace TTTN_Travel.Areas.Admin.Controllers
         // GET: Admin/Tintucs
         public async Task<IActionResult> Index()
         {
-            ViewBag.Name = HttpContext.Session.GetString("name");
+            ViewBag.Name = HttpContext.Session.GetString("namead");
             ViewBag.Img = HttpContext.Session.GetString("image");
+            ViewBag.Id = HttpContext.Session.GetString("id");
             ViewBag.Pass = HttpContext.Session.GetString("pass");
+
+
             return View(await _context.Tintuc.ToListAsync());
         }
 
         // GET: Admin/Tintucs/Details/5
         public async Task<IActionResult> Details(int? id)
         {
-            ViewBag.Name = HttpContext.Session.GetString("name");
+            ViewBag.Name = HttpContext.Session.GetString("namead");
             ViewBag.Img = HttpContext.Session.GetString("image");
+            ViewBag.Id = HttpContext.Session.GetString("id");
             ViewBag.Pass = HttpContext.Session.GetString("pass");
             if (id == null)
             {
@@ -55,9 +60,10 @@ namespace TTTN_Travel.Areas.Admin.Controllers
         // GET: Admin/Tintucs/Create
         public IActionResult Create()
         {
-            ViewBag.Name = HttpContext.Session.GetString("name");
+            ViewBag.Name = HttpContext.Session.GetString("namead");
             ViewBag.Img = HttpContext.Session.GetString("image");
             ViewBag.Pass = HttpContext.Session.GetString("pass");
+            ViewBag.Id = HttpContext.Session.GetString("id");
             return View();
         }
 
@@ -68,12 +74,14 @@ namespace TTTN_Travel.Areas.Admin.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Create([Bind("Id,Tentintuc,Anhtintuc,Tomtat,Chitiet,Date,ImageFile")] Tintuc tintuc)
         {
-            ViewBag.Name = HttpContext.Session.GetString("name");
+            ViewBag.Name = HttpContext.Session.GetString("namead");
             ViewBag.Img = HttpContext.Session.GetString("image");
             ViewBag.Pass = HttpContext.Session.GetString("pass");
+            ViewBag.Id = HttpContext.Session.GetString("id");
             if (ModelState.IsValid)
             {
                 UploadFiles.ImgURL(tintuc.ImageFile);
+                tintuc.Chitiet = Request.Form["Chitiet"].ToString();
                 tintuc.Anhtintuc = tintuc.ImageFile.FileName;
                 _context.Add(tintuc);
                 await _context.SaveChangesAsync();
@@ -85,9 +93,10 @@ namespace TTTN_Travel.Areas.Admin.Controllers
         // GET: Admin/Tintucs/Edit/5
         public async Task<IActionResult> Edit(int? id)
         {
-            ViewBag.Name = HttpContext.Session.GetString("name");
+            ViewBag.Name = HttpContext.Session.GetString("namead");
             ViewBag.Img = HttpContext.Session.GetString("image");
             ViewBag.Pass = HttpContext.Session.GetString("pass");
+            ViewBag.Id = HttpContext.Session.GetString("id");
             if (id == null)
             {
                 return NotFound();
@@ -108,9 +117,10 @@ namespace TTTN_Travel.Areas.Admin.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Edit(int id, [Bind("Id,Tentintuc,Anhtintuc,Tomtat,Chitiet,Date,ImageFile")] Tintuc tintuc)
         {
-            ViewBag.Name = HttpContext.Session.GetString("name");
+            ViewBag.Name = HttpContext.Session.GetString("namead");
             ViewBag.Img = HttpContext.Session.GetString("image");
             ViewBag.Pass = HttpContext.Session.GetString("pass");
+            ViewBag.Id = HttpContext.Session.GetString("id");
             if (id != tintuc.Id)
             {
                 return NotFound();
@@ -144,8 +154,9 @@ namespace TTTN_Travel.Areas.Admin.Controllers
         // GET: Admin/Tintucs/Delete/5
         public async Task<IActionResult> Delete(int? id)
         {
-            ViewBag.Name = HttpContext.Session.GetString("name");
+            ViewBag.Name = HttpContext.Session.GetString("namead");
             ViewBag.Img = HttpContext.Session.GetString("image");
+            ViewBag.Id = HttpContext.Session.GetString("id");
             ViewBag.Pass = HttpContext.Session.GetString("pass");
             if (id == null)
             {
@@ -167,8 +178,9 @@ namespace TTTN_Travel.Areas.Admin.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(int id)
         {
-            ViewBag.Name = HttpContext.Session.GetString("name");
+            ViewBag.Name = HttpContext.Session.GetString("namead");
             ViewBag.Img = HttpContext.Session.GetString("image");
+            ViewBag.Id = HttpContext.Session.GetString("id");
             ViewBag.Pass = HttpContext.Session.GetString("pass");
             var tintuc = await _context.Tintuc.FindAsync(id);
             _context.Tintuc.Remove(tintuc);

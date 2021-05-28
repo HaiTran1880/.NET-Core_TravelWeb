@@ -1,0 +1,39 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+    <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+    <link href="~/css/Login.css" rel="stylesheet" />
+    <script src="~/js/Login.js"></script>
+    <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+    <title>Index</title>
+</head>
+<body>
+    <div class="container">
+        <div class="card card-container">
+            <!-- <img class="profile-img-card" src="//lh3.googleusercontent.com/-6V8xOA6M7BA/AAAAAAAAAAI/AAAAAAAAAAA/rzlHcD0KYwo/photo.jpg?sz=120" alt="" /> -->
+            <img id="profile-img" class="profile-img-card" src="//ssl.gstatic.com/accounts/ui/avatar_2x.png" />
+            <p id="profile-name" class="profile-name-card" style="margin:20px">Forgot Your PassWord</p>
+            <form class="form-signin" method="post" action="/UserLogin/Email" enctype="multipart/form-data">
+                
+                <input type="text" id="inputEmail" class="form-control" placeholder="Enter Your Email" name="Email" required>
+               
+                <button class="btn btn-lg btn-primary btn-block btn-signin" type="submit" onclick="">ConFirm</button>
+            </form><!-- /form -->
+            <a href="/UserLogin/Index" class="forgot-password">
+                Back to Login
+            </a>
+            <a href="/UserLogin/Regis" class="forgot-password">
+                You don't have account? Register here'
+            </a>
+        </div><!-- /card-container -->
+    </div>
+</body>
+</html>

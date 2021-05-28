@@ -8,18 +8,43 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="author" content="Your website">
+    <!-- jQuery 1.8 or later, 33 KB -->
+    <!--<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>-->
 
+    <!-- Fotorama from CDNJS, 19 KB -->
+    <!--<link href="https://cdnjs.cloudflare.com/ajax/libs/fotorama/4.6.4/fotorama.css" rel="stylesheet">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/fotorama/4.6.4/fotorama.js"></script>
+    <script src="~/js/Sticky.js"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+    <link href="~/css/carousel.css" rel="stylesheet" />
+    <link href="~/css/addtoany.min.css" rel="stylesheet" />
+    <link href="~/css/styles.css" rel="stylesheet" />
+    <link href="~/css/owl.carousel.min.css" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+    <link rel="stylesheet" type="text/css" href="https://tourre.vn/wp-content/themes/travel-theme/css/style.css">
+    <link rel="stylesheet" type="text/css" href="https://tourre.vn/wp-content/themes/travel-theme/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="https://tourre.vn/wp-content/themes/travel-theme/css/owl.carousel.min.css">
+    <link rel='stylesheet' id='wp-block-library-css' href='https://tourre.vn/wp-includes/css/dist/block-library/style.min.css?ver=5.5.3' type='text/css' media='all' />
+    <link rel='stylesheet' id='contact-form-7-css' href='https://tourre.vn/wp-content/plugins/contact-form-7/includes/css/styles.css?ver=5.4' type='text/css' media='all' />
+    <link rel='stylesheet' id='addtoany-css' href='https://tourre.vn/wp-content/plugins/add-to-any/addtoany.min.css?ver=1.15' type='text/css' media='all' />
+    <script type='text/javascript' src='https://tourre.vn/wp-includes/js/jquery/jquery.js?ver=1.12.4-wp' id='jquery-core-js'></script>
+    <script type='text/javascript' src='https://tourre.vn/wp-content/plugins/add-to-any/addtoany.min.js?ver=1.1' id='addtoany-js'></script>-->
     <!-- Favicon -->
     <link rel="shortcut icon" href="~/assest/images/favicon.ico">
-
     <!-- Bootstrap CSS -->
+    <script src="~/assest/admin/js/plugins/ckeditor/ckeditor.js"></script>
+    <script src="~/assest/admin/js/plugins/ckfinder/ckfinder.js"></script>
     <link href="~/assest/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
     <link href="~/datatables/DataTables-1.10.18/css/datatables.min.css" rel="stylesheet" />
     <script src="~/datatables/DataTables-1.10.18/js/datatables.min.js"></script>
     <!-- Font Awesome CSS -->
     <link href="~/assest/font-awesome/css/all.css" rel="stylesheet" type="text/css" />
-
+    <script src="~/js/Paging.js"></script>
     <!-- Custom CSS -->
+
     <link href="~/assest/css/style.css" rel="stylesheet" type="text/css" />
 </head>
 
@@ -55,7 +80,7 @@
                             </div>
 
                             <!-- item-->
-                            <a href="profile.html" class="dropdown-item notify-item">
+                            <a href="/Admin/Addmins/Details?Id=@ViewBag.Id" class="dropdown-item notify-item">
                                 <i class="fas fa-user"></i>
                                 <span>Profile</span>
                             </a>
@@ -107,7 +132,14 @@
                         <li class="submenu">
                             <a href="/Admin/Addmins/Index">
                                 <i class="fas fa-user"></i>
-                                <span> Account </span>
+                                <span> Account Admin </span>
+                            </a>
+                        </li>
+
+                        <li class="submenu">
+                            <a href="/Admin/Users/Index">
+                                <i class="fas fa-user"></i>
+                                <span> Customers </span>
                             </a>
                         </li>
 
@@ -165,13 +197,29 @@
     <!-- END main -->
     <!-- BEGIN Java Script for this page -->
     <script src="~/assest/plugins/datatables/datatables.min.js"></script>
-    <!-- dataTabled data <script src="~/assest/data/data_datatables.js"></script>-->
-
+    <!-- dataTabled data -->
+    <script src="~/assest/data/data_datatables.js"></script>
     <script>
         $(document).on('ready', function () {
             var table = $('#dataTable').DataTable({
-                data: dataSet
-            });
+                "paging": true,
+                data: //dataSet
+                });
+        });
+    </script>
+    <script>
+@*        $('#btnSelectImage').on('click', function (e) {
+            e.preventDefault();
+            var finder = new CKFinder();
+            finder.selectActionFunction = function (url) {
+                $('#txtImage').val(url);
+            };
+            finder.popup();
+        })
+*@
+        var editor = CKEDITOR.replace('txtChiTietTour', {
+            customConfig: '/assets/admin/js/plugins/ckeditor/config.js',
+            htmlEncodeOutput: true
         });
     </script>
     <!-- END Java Script for this page -->

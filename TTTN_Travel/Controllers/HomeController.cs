@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -24,6 +25,14 @@ namespace TTTN_Travel.Controllers
             ViewBag.tout = this.tourReContext.Tout.Take(3);
             //Take 4 news
             ViewBag.news = this.tourReContext.Tintuc.Take(4);
+            ViewBag.Totaluser = this.tourReContext.Statistical.Where(x => x.ID == 1).FirstOrDefault().Visit;
+            ViewBag.User= HttpContext.Session.GetString("name");
+            ViewBag.Ten = HttpContext.Session.GetString("ten");
+            ViewBag.Img = HttpContext.Session.GetString("image");
+            ViewBag.Phone=HttpContext.Session.GetString("phone");
+            ViewBag.Email=HttpContext.Session.GetString("email");
+            ViewBag.Ad=HttpContext.Session.GetString("adress");
+            ViewBag.Online = Online.online;
             return View();
         }
         public IActionResult Role()

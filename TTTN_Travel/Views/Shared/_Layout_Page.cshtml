@@ -30,7 +30,7 @@
 
     <meta property="og:locale" content="vi_VN">
     <meta property="og:type" content="website">
-   
+
     <meta property="og:updated_time" content="2021-03-29T11:48:13+07:00">
     <meta name="twitter:card" content="summary_large_image">
 
@@ -71,22 +71,32 @@
                 <div class="cam-nang-menu" style="display: inline-block">
                     <div class="lien-he-header">
                         <a class="phone-right" href="tel: 0974624983"><i class="fa fa-phone-square"></i>  0969453725</a>
-                        <div class="contact-right">
-                            <form action="/Search/Index" method="post">
-                                <div class="input-group">
-                                    <input type="text" class="form-control" value="" name="s" placeholder="Search for...">
-                                    <span class="input-group-btn">
-                                        <button class="btn btn-secondary" type="submit">Tìm kiếm</button>
-                                    </span>
-                                </div>
-                            </form>
-                        </div>
-                        <div class="btn btn-primary btn-sm btn-block" style="width:70px;float:right;margin-left:20px"><a href="/Login/Index" style="color:white;font-size:17px;">Login</a></div>
+                        @using (Html.BeginForm("Index", "UserLogin", new
+                        {
+                            ReturnUrl = ViewBag.ReturnUrl
+                        }, FormMethod.Post))
+                        {
+                            <div id="btnLogin" class="btn btn-primary btn-sm btn-block" style="width:70px;float:right;margin-left:20px">
+                                <a href="/UserLogin/Index" style="color:white;font-size:17px;">Login</a>
+                            </div>
+                        }
+
+                        @if (ViewBag.User != null)
+                        {
+                   
+                        <div style="float:right;margin-left:50px"><span style="font-size:20px;font-style:italic"><span onclick="" id="welcom">Xin chào :<a href="/UserLogin/Mytour"> @ViewBag.User</a> </span> <a style="color:red;margin-left:20px;" href="/UserLogin/LogOut"><i class="fa fa-sign-out"></i>Log out</a></span></div>
+
+                        <script type="text/javascript">
+                            $("#btnLogin").hide();
+                     
+                        </script>
+                            
+                        }
                     </div>
-                    
+
                 </div>
             </div>
-            
+
         </div>
     </div>
     <!--Header-->
@@ -109,34 +119,35 @@
                         <li itemscope="itemscope" itemtype="https://www.schema.org/SiteNavigationElement" id="menu-item-8" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-home current-menu-item page_item page-item-6 current_page_item active menu-item-8 nav-item"><a title="Trang chủ" href="/Home/Index" class="nav-link">Trang chủ</a></li>
                         <li itemscope="itemscope" itemtype="https://www.schema.org/SiteNavigationElement" id="menu-item-452" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children dropdown menu-item-452 nav-item">
                             <a title="Tour du lịch" href="/Tours/Index" aria-haspopup="true" aria-expanded="false" class="dropdown-toggle nav-link" id="menu-item-dropdown-452">Tour Trong Nước</a>
-                            <ul class="dropdown-menu" aria-labelledby="menu-item-dropdown-452" role="menu">
+                            <!--
+                                <ul class="dropdown-menu" aria-labelledby="menu-item-dropdown-452" role="menu">
                                 <li itemscope="itemscope" itemtype="https://www.schema.org/SiteNavigationElement" id="menu-item-4389" class="menu-item menu-item-type-taxonomy menu-item-object-du-lich-tour menu-item-4389 nav-item"><a title="Tour Hè" href="#" class="dropdown-item">Tour Hè</a></li>
                                 <li itemscope="itemscope" itemtype="https://www.schema.org/SiteNavigationElement" id="menu-item-2072" class="menu-item menu-item-type-taxonomy menu-item-object-du-lich-tour menu-item-2072 nav-item"><a title="Tour Hà Nội" href="#" class="dropdown-item">Tour Hà Nội</a></li>
                                 <li itemscope="itemscope" itemtype="https://www.schema.org/SiteNavigationElement" id="menu-item-940" class="menu-item menu-item-type-taxonomy menu-item-object-du-lich-tour menu-item-940 nav-item"><a title="Tour Ninh Bình" href="#" class="dropdown-item">Tour Ninh Bình</a></li>
                                 <li itemscope="itemscope" itemtype="https://www.schema.org/SiteNavigationElement" id="menu-item-941" class="menu-item menu-item-type-taxonomy menu-item-object-du-lich-tour menu-item-941 nav-item"><a title="Tour Sapa" href="#" class="dropdown-item">Tour Sapa</a></li>
                                 <li itemscope="itemscope" itemtype="https://www.schema.org/SiteNavigationElement" id="menu-item-1638" class="menu-item menu-item-type-taxonomy menu-item-object-du-lich-tour menu-item-1638 nav-item"><a title="Tour Đông Tây Bắc" href="#" class="dropdown-item">Tour Đông Tây Bắc</a></li>
                             </ul>
+                            -->
                         </li>
                         <li itemscope="itemscope" itemtype="https://www.schema.org/SiteNavigationElement" id="menu-item-81" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children dropdown menu-item-81 nav-item">
                             <a title="Tour Nước Ngoài" href="/Tout/Index" aria-haspopup="true" aria-expanded="false" class="dropdown-toggle nav-link" id="menu-item-dropdown-81">Tour Nước Ngoài</a>
-                            <ul class="dropdown-menu" aria-labelledby="menu-item-dropdown-81" role="menu">
+                            <!--
+                                <ul class="dropdown-menu" aria-labelledby="menu-item-dropdown-81" role="menu">
                                 <li itemscope="itemscope" itemtype="https://www.schema.org/SiteNavigationElement" id="menu-item-947" class="menu-item menu-item-type-taxonomy menu-item-object-types menu-item-947 nav-item"><a title="" href="#" class="dropdown-item">Tour Châu Á</a></li>
-                                <li itemscope="itemscope" itemtype="https://www.schema.org/SiteNavigationElement" id="menu-item-948" class="menu-item menu-item-type-taxonomy menu-item-object-types menu-item-948 nav-item"><a title="" href="#/" class="dropdown-item">Tour Châu Âu</a></li>
+                                <li itemscope="itemscope" itemtype="https://www.schema.org/SiteNavigationElement" id="menu-item-948" class="menu-item menu-item-type-taxonomy menu-item-object-types menu-item-948 nav-item"><a title="" href="#" class="dropdown-item">Tour Châu Âu</a></li>
                                 <li itemscope="itemscope" itemtype="https://www.schema.org/SiteNavigationElement" id="menu-item-949" class="menu-item menu-item-type-taxonomy menu-item-object-types menu-item-949 nav-item"><a title="" href="#" class="dropdown-item">Tour Châu Mỹ</a></li>
                                 <li itemscope="itemscope" itemtype="https://www.schema.org/SiteNavigationElement" id="menu-item-950" class="menu-item menu-item-type-taxonomy menu-item-object-types menu-item-950 nav-item"><a title="" href="#" class="dropdown-item">Tour Châu Phi</a></li>
                                 <li itemscope="itemscope" itemtype="https://www.schema.org/SiteNavigationElement" id="menu-item-951" class="menu-item menu-item-type-taxonomy menu-item-object-types menu-item-951 nav-item"><a title="" href="#" class="dropdown-item">Tour Khám Phá Đại Dương</a></li>
                                 <li itemscope="itemscope" itemtype="https://www.schema.org/SiteNavigationElement" id="menu-item-952" class="menu-item menu-item-type-taxonomy menu-item-object-types menu-item-952 nav-item"><a title="" href="#" class="dropdown-item">Tour Khám Phá Vũ Trụ</a></li>
                             </ul>
+                            -->
                         </li>
-                        <li itemscope="itemscope" itemtype="https://www.schema.org/SiteNavigationElement" id="menu-item-348" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children dropdown menu-item-348 nav-item">
-                            <a title="Combo Du lịch" href="#" aria-haspopup="true" aria-expanded="false" class="dropdown-toggle nav-link" id="menu-item-dropdown-348">Combo Du lịch</a>
-                            <ul class="dropdown-menu" aria-labelledby="menu-item-dropdown-348" role="menu">
-                                <li itemscope="itemscope" itemtype="https://www.schema.org/SiteNavigationElement" id="menu-item-945" class="menu-item menu-item-type-taxonomy menu-item-object-cate_combo menu-item-945 nav-item"><a title="Combo Giá Rẻ" href="#" class="dropdown-item">Combo Giá Rẻ</a></li>
-                                <li itemscope="itemscope" itemtype="https://www.schema.org/SiteNavigationElement" id="menu-item-946" class="menu-item menu-item-type-taxonomy menu-item-object-cate_combo menu-item-946 nav-item"><a title="Combo Cao Cấp" href="#" class="dropdown-item">Combo Đẳng Cấp</a></li>
-                            </ul>
-                        </li>
-                        <li itemscope="itemscope" itemtype="https://www.schema.org/SiteNavigationElement" id="menu-item-20" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-20 nav-item"><a title="Điểm đến Du lịch" href="#" class="nav-link">Điểm đến Du lịch</a></li>
-                        <li itemscope="itemscope" itemtype="https://www.schema.org/SiteNavigationElement" id="menu-item-297" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-297 nav-item"><a title="Vé máy bay" href="#" class="nav-link">Vé máy bay</a></li>
+                        
+                                             @*   <li itemscope="itemscope" itemtype="https://www.schema.org/SiteNavigationElement" id="menu-item-348" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children dropdown menu-item-348 nav-item">
+                                                <a title="Combo Du lịch" href="/News/Index" aria-haspopup="true" aria-expanded="false" class="dropdown-toggle nav-link" id="menu-item-dropdown-348">Tin Tức</a>                                          
+                                            </li>*@
+                                           
+                        <li itemscope="itemscope" itemtype="https://www.schema.org/SiteNavigationElement" id="menu-item-20" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-20 nav-item"><a title="Điểm đến Du lịch" href="/Places/Index" class="nav-link">Điểm đến Du lịch</a></li>
 
                     </ul>
                 </div><!-- /.navbar-collapse -->
@@ -199,6 +210,80 @@
     </div>
     <!--End_Slide-->
     <!---->
+    <!--Search Bar-->
+    <div class="box-search">
+        <div class="">
+
+            @using (Html.BeginForm("Index", "Search", FormMethod.Post))
+            {
+                <div style="background-color: #007cba;height: 50px">
+                    <div style="padding:10px;">
+                        Loại hình du lịch:
+                        <input type="radio" name="radio" data-id="1" class="rdtrongnuoc" value="11" />
+                        Trong nước
+                        <input style="margin-left:10px" type="radio" data-id="0" name="radio" class="rdnuocngoai" value="22" />
+                        Nước ngoài
+                    </div>
+                </div>
+                <table style="border:none">
+                    <tr>
+                        @*<td width="83">Điểm đến</td>
+                            <td width="172">
+                                <label for="textfield"></label>
+                                <input type="text" name="textfield" id="textfield" />
+                            </td>*@
+                        <td width="70">
+                            Điểm đến: <label for="select"></label>
+                            <span>
+                                <select class="textbox" name="diemden" id="diemden" style="width:150px">
+                                    <option value="">--Chọn điểm đến--</option>
+                                    <option value="0">Ninh Bình</option>
+                                    <option value="1">Sapa</option>
+                                    <option value="2">Hà Giang</option>
+                                    <option value="3">Dubai</option>
+                                    <option value="4">Phuket</option>
+                                </select>
+                            </span>
+                        </td>
+
+                        <td width="60">
+                            Giá tour: <label for="select"></label>
+                            <span>
+                                <select class="textbox" name="giatour" id="giatour">
+                                    <option value="0">--Giá tour--</option>
+                                    <option value="1">500.000 - 5.000.000</option>
+                                    <option value="2">5.000.000 - 10.000.000</option>
+                                    <option value="3">10.000.000 - 20.000.000</option>
+                                    <option value="4">20.000.000 - 40.000.000</option>
+                                </select>
+                            </span>
+                        </td>
+                        @*<td style="width:200px">
+                            Lịch khởi hành: <span>
+                                <div class="form-group">
+                                    <div class='input-group date' id='datetimepicker1'>
+                                        <input name="datetime" type='datetime-local' class="form-control" style="width:200px;" />
+                                    </div>
+                                </div>
+                            </span>
+                        </td>*@
+                        <td width="200">
+                            <div class="contact-right">
+                                    <div class="input-group">
+                                        <input type="text" class="form-control" name="s" placeholder="Search for...">
+                                        <span class="input-group-btn">
+                                            <button class="btn btn-secondary" type="submit">Tìm kiếm</button>
+                                        </span>
+                                    </div>
+                            </div>
+                        </td>
+                    </tr>
+                </table>
+            }
+        </div>
+    </div>
+
+    <!--End_Search Bar-->
     <!--Main-->
     <section class="content-home">
         <div class="container">
@@ -258,9 +343,9 @@
                         <li><a href="#">Đội ngũ Tourre</a> </li>
                         <li><a href="/Home/AboutUs">Khách hàng nói về chúng tôi</a> </li>
                         <li><a href="#">FAQ - Câu hỏi thường gặp</a> </li>
-                        
-                        <li style="color:white">Số lượng truy cập:</li>
-                        <li><a href="#">Liên hệ</a> </li>
+
+                        <li style="color:white">Số lượng truy cập:64</li>@* @ViewBag.Totaluser*@
+                        <li><a href="#">Đang Online:1</a> </li> @*@ViewBag.Online*@
                     </ul>
                 </div>
             </div>
@@ -296,7 +381,7 @@
             </div>
         </div>
         <div class='phone'>
-            <a href="https://zalo.me/0974624983">
+            <a href="https://zalo.me/0969453725">
                 <div class="quick-alo-ph-circle"></div>
                 <div class="quick-alo-ph-circle-fill"></div>
                 <div class="quick-alo-ph-img-circle"></div>
@@ -461,7 +546,7 @@
             return num.toString().replace(/(\d)(?=(\d{3})+(?!\d))/g, "$1.")
         }
     </script>
-  
+
     <script>
         $(window).scroll(function () {
             if ($(window).scrollTop() >= 200) {
@@ -492,15 +577,16 @@
         })("default", { "translation-revision-date": "2021-01-06 14:54:27+0000", "generator": "GlotPress\/3.0.0-alpha.2", "domain": "messages", "locale_data": { "messages": { "": { "domain": "messages", "plural-forms": "nplurals=1; plural=0;", "lang": "vi_VN" }, "You are probably offline.": ["C\u00f3 th\u1ec3 b\u1ea1n \u0111ang ngo\u1ea1i tuy\u1ebfn."], "Media upload failed. If this is a photo or a large image, please scale it down and try again.": ["T\u1ea3i l\u00ean media kh\u00f4ng th\u00e0nh c\u00f4ng. N\u1ebfu \u0111\u00e2y l\u00e0 h\u00ecnh \u1ea3nh c\u00f3 k\u00edch th\u01b0\u1edbc l\u1edbn, vui l\u00f2ng thu nh\u1ecf n\u00f3 xu\u1ed1ng v\u00e0 th\u1eed l\u1ea1i."], "An unknown error occurred.": ["C\u00f3 l\u1ed7i n\u00e0o \u0111\u00f3 \u0111\u00e3 x\u1ea3y ra."], "The response is not a valid JSON response.": ["Ph\u1ea3n h\u1ed3i kh\u00f4ng ph\u1ea3i l\u00e0 m\u1ed9t JSON h\u1ee3p l\u1ec7."] } }, "comment": { "reference": "wp-includes\/js\/dist\/api-fetch.js" } });
     </script>
     <script type='text/javascript' src='https://tourre.vn/wp-includes/js/dist/api-fetch.min.js?ver=8773a93ea0d1278a2eaa147fdb6eb96d' id='wp-api-fetch-js'></script>
-    
+
     <script type='text/javascript' src='https://tourre.vn/wp-content/plugins/contact-form-7/includes/js/index.js?ver=5.4' id='contact-form-7-js'></script>
-  
+
     <script type='text/javascript' src='https://tourre.vn/wp-content/plugins/table-of-contents-plus/front.min.js?ver=2002' id='toc-front-js'></script>
     <script type='text/javascript' src='https://tourre.vn/wp-includes/js/wp-embed.min.js?ver=5.5.3' id='wp-embed-js'></script>
     <script async="async" type='text/javascript' src='https://tourre.vn/wp-content/plugins/akismet/_inc/form.js?ver=4.1.9' id='akismet-form-js'></script>
     <!--End_Script-->
 </body>
-</html><script type="text/javascript" src="https://tourre.vn/wp-content/themes/travel-theme/js/js.js"></script>
+</html>
+<script type="text/javascript" src="https://tourre.vn/wp-content/themes/travel-theme/js/js.js"></script>
 <script type="text/javascript">
     $(document).ready(function () {
         console.log("document ready!");

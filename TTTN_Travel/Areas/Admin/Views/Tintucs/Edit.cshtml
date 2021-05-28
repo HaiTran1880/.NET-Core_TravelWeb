@@ -21,7 +21,7 @@
             </div>
             <div class="form-group">
                 <label asp-for="ImageFile" class="control-label"></label>
-                <input asp-for="ImageFile" class="form-control" />
+                <input asp-for="ImageFile" required class="form-control" />
                 <span asp-validation-for="ImageFile" class="text-danger"></span>
             </div>
             <div class="form-group">
@@ -29,9 +29,13 @@
                 <input asp-for="Tomtat" class="form-control" />
                 <span asp-validation-for="Tomtat" class="text-danger"></span>
             </div>
-            <div class="form-group">
+            <div class="form-group" style="width:1000px">
                 <label asp-for="Chitiet" class="control-label"></label>
-                <input asp-for="Chitiet" class="form-control" />
+                <textarea asp-for="Chitiet" class="form-control"></textarea>
+                <script language="javascript">
+                    CKEDITOR.replace("Chitiet");
+                </script>
+                <!--<input asp-for="Chitiet" class="form-control" />-->
                 <span asp-validation-for="Chitiet" class="text-danger"></span>
             </div>
             <div class="form-group">

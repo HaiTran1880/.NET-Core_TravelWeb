@@ -4,62 +4,93 @@
     ViewData["Title"] = "Index";
     Layout = "~/Areas/Admin/Views/Shared/_Layout_Admin.cshtml";
 }
-<div class="row">
-    <div class="col-xl-12">
-        <div class="breadcrumb-holder">
-            <h1 class="main-title float-left">News</h1>
-            <p style="float:right">
-                <a asp-action="Create"><i class="fas fa-plus" aria-hidden="true"></i>Create New</a>
-            </p>
-            <div class="clearfix"></div>
+<div class="container-fluid">
+
+    <div class="row">
+        <div class="col-xl-12">
+            <div class="breadcrumb-holder">
+                <h1 class="main-title float-left">News</h1>
+                <p style="float:right">
+                    <a asp-action="Create"><i class="fas fa-plus" aria-hidden="true"></i>Create New</a>
+                </p>
+                <div class="clearfix"></div>
+            </div>
         </div>
     </div>
+    <!-- end row -->
+
+    <div class="row">
+
+        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 col-xl-12">
+            <div class="card-body">
+                <div class="table-responsive">
+                    <table id="dataTable" class="table table-bordered table-hover display dataTable no-footer" style="width: 100%;" role="grid" aria-describedby="dataTable_info">
+                        <thead>
+                            <tr>
+                                <th>
+                                    @Html.DisplayNameFor(model => model.Tentintuc)
+                                </th>
+                                <th>
+                                    @Html.DisplayNameFor(model => model.Anhtintuc)
+                                </th>
+                                <th>
+                                    @Html.DisplayNameFor(model => model.Tomtat)
+                                </th>
+                                <th>
+                                    @Html.DisplayNameFor(model => model.Chitiet)
+                                </th>
+                                <th>
+                                    @Html.DisplayNameFor(model => model.Date)
+                                </th>
+                                <th></th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach (var item in Model)
+                            {
+                                <tr>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.Tentintuc)
+                                    </td>
+                                    <td>
+                                        <img src="~/images/@Html.DisplayFor(modelItem => item.Anhtintuc)" style="width:100px; height:100px;" />
+                                    </td>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.Tomtat)
+                                    </td>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.Chitiet)
+                                    </td>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.Date)
+                                    </td>
+                                    <td>
+                                        <a asp-action="Edit" asp-route-id="@item.Id" class="btn btn-primary btn-sm btn-block"><i class="far fa-edit"></i>Edit</a>
+                                        <a asp-action="Delete" asp-route-id="@item.Id" class="btn btn-danger btn-sm btn-block mt-2"><i class="fas fa-trash"></i>Delete</a>
+                                    </td>
+                                </tr>
+                            }
+                        </tbody>
+                    </table>
+                </div>
+                <!-- end table-responsive-->
+
+            </div>
+            <!-- end card-body-->
+
+        </div>
+        <!-- end card-->
+
+    </div>
+
 </div>
-<table class="table">
-    <thead>
-        <tr>
-            <th>
-                @Html.DisplayNameFor(model => model.Tentintuc)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Anhtintuc)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Tomtat)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Chitiet)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Date)
-            </th>
-            <th></th>
-        </tr>
-    </thead>
-    <tbody>
-        @foreach (var item in Model)
-        {
-            <tr>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Tentintuc)
-                </td>
-                <td>
-                    <img src="~/images/@Html.DisplayFor(modelItem => item.Anhtintuc)" style="width:100px; height:100px;" />
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Tomtat)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Chitiet)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Date)
-                </td>
-                <td>
-                    <a asp-action="Edit" asp-route-id="@item.Id" class="btn btn-primary btn-sm btn-block"><i class="far fa-edit"></i>Edit</a>
-                    <a asp-action="Delete" asp-route-id="@item.Id" class="btn btn-danger btn-sm btn-block mt-2"><i class="fas fa-trash"></i>Delete</a>
-                </td>
-            </tr>
-        }
-    </tbody>
-</table>
+<!-- end row-->
+<script>
+
+        $(function () {
+
+            $('#dataTable').paging({ limit: 5 });
+
+        })
+
+</script>

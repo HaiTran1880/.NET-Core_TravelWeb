@@ -1,9 +1,22 @@
-﻿@model IEnumerable<TTTN_Travel.Models.Addmin>
+﻿@model PaginatedList<TTTN_Travel.Models.Addmin>
 @addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
 @{
     ViewData["Title"] = "Index";
     Layout = "~/Areas/Admin/Views/Shared/_Layout_Admin.cshtml";
 }
+<!--@using TTTN_Travel.Models;
+@using System.Linq;-->
+@* khai bao de su dung phan trang *@
+<!--@using X.PagedList.Mvc.Core;
+@using X.PagedList.Mvc;-->
+@* khai bao kieu du lieu cua model *@
+@*@model X.PagedList.IPagedList<Addmin>*@
+<!--@using System.IO;
+@using X.PagedList;
+@using X.PagedList.Mvc.Common;-->
+
+
+
 <div class="content">
 
     <div class="container-fluid">
@@ -149,7 +162,7 @@
                     <div class="card-body">
 
                         <div class="table-responsive">
-                            <table class="table table-bordered">
+                            <table id="dataTable" class="table table-bordered table-hover display dataTable no-footer" style="width: 100%;" role="grid" aria-describedby="dataTable_info">
                                 <thead>
                                     <tr>
                                         <th style="min-width:300px">User details</th>
@@ -163,8 +176,8 @@
                                     {
                                         <tr>
                                             <td>
-                                                <div class="user_avatar_list d-none d-none d-lg-block"><img src="~/images/@Html.DisplayFor(modelItem => item.Image)" style="width:100px; height:100px;" /></div>
-                                                <h4>@Html.DisplayFor(modelItem => item.Username)</h4>
+                                                <div class="user_avatar_list d-none d-none d-lg-block"><img src="~/images/@item.Image" style="width:100px; height:100px;" /></div>
+                                                <h4>@item.Username</h4>
                                             </td>
 
                                             <td>Administrator</td>
@@ -180,6 +193,9 @@
                             </table>
                         </div>
 
+                        @*  <div>
+                                @Html.PagedListPager((IPagedList)ViewBag.Addmin, page => Url.Action("Index", "Addmins", new { page = page }))
+                            </div>*@
 
                     </div>
                     <!-- end card-body -->
@@ -195,5 +211,35 @@
 
     </div>
     <!-- END container-fluid -->
-
+   @* <div>
+        @{
+            var prevDisabled = !Model.HasPreviousPage ? "disabled" : "";
+            var nextDisabled = !Model.HasNextPage ? "disabled" : "";
+        }
+        <nav aria-label="...">
+            <ul class="pagination">
+                <li class="page-item disabled">
+                    <a asp-action="Index"
+                       asp-route-pageNumber="@(Model.PageIndex - 1)"
+                       class="btn btn-default @prevDisabled">
+                        Previous
+                    </a>
+                </li>
+                <li class="page-item"><a asp-action="Index"
+   asp-route-pageNumber="@(Model.PageIndex)"
+   class="btn btn-default @prevDisabled">
+    1
+</a></li>
+                <li class="page-item active">
+                    <a class="page-link" href="#">2 <span class="sr-only">(current)</span></a>
+                </li>
+                <li class="page-item"><a class="page-link" href="#">3</a></li>
+                <a asp-action="Index"
+                   asp-route-pageNumber="@(Model.PageIndex + 1)"
+                   class="btn btn-default @nextDisabled">
+                    Next
+                </a>
+            </ul>
+        </nav>
+    </div>*@
 </div>

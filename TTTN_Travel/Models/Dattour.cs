@@ -18,11 +18,19 @@ namespace TTTN_Travel.Models
         public string Email { get; set; }
         [DisplayName("Ngày tạo")]
         public DateTime Date { get; set; }
-        [DisplayName("Số người")]
+        [DisplayName("Số người lớn")]
         public int Songuoi { get; set; }
+        
         [DisplayName("Ghi chú")]
         public string Ghichu { get; set; }
         [DisplayName("Id")]
         public int Id { get; set; }
+        [DisplayName("Trẻ em")]
+        public int Treem { get; set; }
+        [DisplayName("Thành tiền")]
+        public string Thanhtien { get; set; }
+        [DisplayName("Trạng thái")]
+        public string Trangthai { get; set; }
+
     }
 }

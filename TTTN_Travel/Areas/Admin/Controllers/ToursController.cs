@@ -8,6 +8,7 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using TTTN_Travel.Models;
 using TTTN_Travel.Models.Global;
+using X.PagedList;
 
 namespace TTTN_Travel.Areas.Admin.Controllers
 {
@@ -24,18 +25,20 @@ namespace TTTN_Travel.Areas.Admin.Controllers
         // GET: Admin/Tours
         public async Task<IActionResult> Index()
         {
-            ViewBag.Name = HttpContext.Session.GetString("name");
+            ViewBag.Name = HttpContext.Session.GetString("namead");
             ViewBag.Img = HttpContext.Session.GetString("image");
             ViewBag.Pass = HttpContext.Session.GetString("pass");
+            ViewBag.Id = HttpContext.Session.GetString("id");
             return View(await _context.Tour.ToListAsync());
         }
 
         // GET: Admin/Tours/Details/5
         public async Task<IActionResult> Details(int? id)
         {
-            ViewBag.Name = HttpContext.Session.GetString("name");
+            ViewBag.Name = HttpContext.Session.GetString("namead");
             ViewBag.Img = HttpContext.Session.GetString("image");
             ViewBag.Pass = HttpContext.Session.GetString("pass");
+            ViewBag.Id = HttpContext.Session.GetString("id");
             if (id == null)
             {
                 return NotFound();
@@ -54,7 +57,8 @@ namespace TTTN_Travel.Areas.Admin.Controllers
         // GET: Admin/Tours/Create
         public IActionResult Create()
         {
-            ViewBag.Name = HttpContext.Session.GetString("name");
+            ViewBag.Name = HttpContext.Session.GetString("namead");
+            ViewBag.Id = HttpContext.Session.GetString("id");
             ViewBag.Img = HttpContext.Session.GetString("image");
             ViewBag.Pass = HttpContext.Session.GetString("pass");
             return View();
@@ -67,8 +71,9 @@ namespace TTTN_Travel.Areas.Admin.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Create([Bind("Tentuor,ImageFile,Ngaybd,Ngaykt,Mota,Gia,Quocgia,Trongnuoc,Idtour,Lichtrinh,Danhgia")] Tour tour)
         {
-            ViewBag.Name = HttpContext.Session.GetString("name");
+            ViewBag.Name = HttpContext.Session.GetString("namead");
             ViewBag.Img = HttpContext.Session.GetString("image");
+            ViewBag.Id = HttpContext.Session.GetString("id");
             ViewBag.Pass = HttpContext.Session.GetString("pass");
             if (ModelState.IsValid)
             {
@@ -84,8 +89,9 @@ namespace TTTN_Travel.Areas.Admin.Controllers
         // GET: Admin/Tours/Edit/5
         public async Task<IActionResult> Edit(int? id)
         {
-            ViewBag.Name = HttpContext.Session.GetString("name");
+            ViewBag.Name = HttpContext.Session.GetString("namead");
             ViewBag.Img = HttpContext.Session.GetString("image");
+            ViewBag.Id = HttpContext.Session.GetString("id");
             ViewBag.Pass = HttpContext.Session.GetString("pass");
             if (id == null)
             {
@@ -107,8 +113,9 @@ namespace TTTN_Travel.Areas.Admin.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Edit(int id, [Bind("Tentuor,ImageFile,Ngaybd,Ngaykt,Mota,Gia,Quocgia,Trongnuoc,Idtour,Lichtrinh,Danhgia")] Tour tour)
         {
-            ViewBag.Name = HttpContext.Session.GetString("name");
+            ViewBag.Name = HttpContext.Session.GetString("namead");
             ViewBag.Img = HttpContext.Session.GetString("image");
+            ViewBag.Id = HttpContext.Session.GetString("id");
             ViewBag.Pass = HttpContext.Session.GetString("pass");
             if (id != tour.Idtour)
             {
@@ -143,8 +150,9 @@ namespace TTTN_Travel.Areas.Admin.Controllers
         // GET: Admin/Tours/Delete/5
         public async Task<IActionResult> Delete(int? id)
         {
-            ViewBag.Name = HttpContext.Session.GetString("name");
+            ViewBag.Name = HttpContext.Session.GetString("namead");
             ViewBag.Img = HttpContext.Session.GetString("image");
+            ViewBag.Id = HttpContext.Session.GetString("id");
             ViewBag.Pass = HttpContext.Session.GetString("pass");
             if (id == null)
             {
@@ -166,8 +174,9 @@ namespace TTTN_Travel.Areas.Admin.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(int id)
         {
-            ViewBag.Name = HttpContext.Session.GetString("name");
+            ViewBag.Name = HttpContext.Session.GetString("namead");
             ViewBag.Img = HttpContext.Session.GetString("image");
+            ViewBag.Id = HttpContext.Session.GetString("id");
             ViewBag.Pass = HttpContext.Session.GetString("pass");
             var tour = await _context.Tour.FindAsync(id);
             _context.Tour.Remove(tour);

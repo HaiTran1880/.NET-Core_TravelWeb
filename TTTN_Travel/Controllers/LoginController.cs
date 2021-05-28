@@ -35,9 +35,10 @@ namespace TTTN_Travel.Controllers
             {
                 //đăng nhập thành công
                 //sét biến session  để kiểm tra các trang trong admin
-                HttpContext.Session.SetString("name", acc.Username);
+                HttpContext.Session.SetString("namead", acc.Username);
                 HttpContext.Session.SetString("pass", acc.Passwork);
                 HttpContext.Session.SetString("image", acc.Image);
+                HttpContext.Session.SetString("id", acc.Idad.ToString());
                 HttpContext.Session.SetString("Account", name);
                 HttpContext.Session.Remove("Err");
                 return Redirect("/Admin/Home");

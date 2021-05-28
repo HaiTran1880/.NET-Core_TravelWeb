@@ -1,0 +1,94 @@
+﻿@model TTTN_Travel.Models.Dattour;
+@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
+@{
+    ViewData["Title"] = "Mytour";
+    Layout = "~/Views/Shared/_Layout_Page.cshtml";
+}
+
+<h3 style="color:#ff6a00">TOUR CỦA TÔI</h3>
+<table id="dataTable" class="table table-bordered table-hover display dataTable no-footer" style="width: 100%;" role="grid" aria-describedby="dataTable_info">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Hoten)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Tentuor)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Sdt)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Dc)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Email)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Date)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Songuoi)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Treem)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Ghichu)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Thanhtien)
+            </th>
+            <th>
+                Tác vụ
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var it in ViewBag.MyTour)
+        {
+                    <tr>
+            <th>
+                @it.Hoten
+            </th>
+            <th>
+                @it.Tentuor
+            </th>
+            <th>
+                @it.Sdt
+            </th>
+            <th>
+                @it.Dc
+            </th>
+            <th>
+                @it.Email
+            </th>
+            <th>
+                @it.Date
+            </th>
+            <th>
+                @it.Songuoi
+            </th>
+            <th>
+                @it.Treem
+            </th>
+            <th>
+                @it.Ghichu
+            </th>
+            <th>
+                @it.Thanhtien
+            </th>
+            <th>
+
+                <label hidden name="tentour">@Html.DisplayFor(model => model.Tentuor)</label>
+                <a href="/UserLogin/Deletetour" class="btn btn-danger btn-sm btn-block mt-2">Delete</a>
+
+            </th>
+        </tr>
+        }
+
+
+    </tbody>
+</table>
+
+

@@ -14,7 +14,6 @@ namespace TTTN_Travel.Middlewares
     {
         private readonly RequestDelegate _next;
         private readonly TourReContext tourReContext = new TourReContext();
-
         public CheckLoginMiddleware(RequestDelegate next)
         {
             _next = next;
@@ -40,27 +39,12 @@ namespace TTTN_Travel.Middlewares
         private async Task abc(HttpContext httpContext)
         {
             httpContext.Session.SetString("Online", GetIPAddress());
+            var st =tourReContext.Statistical.Where(x => x.ID == 1).FirstOrDefault();
+            st.Visit = st.Visit + 1;
+            int a = st.Visit;
             Online.online += 1;
-            var visit = tourReContext.Statistical.Where(x => x.ID == 1).FirstOrDefault();
-            visit.Visit += 1;  
-            tourReContext.Statistical.Update(visit);
-            string visitorId = httpContext.Request.Cookies["VisitorId"];
-            if (visitorId != null)
-            {
-                //don the necessary staffs here to save the count by one
-               
-                visit.Visit += 1;
-                tourReContext.Statistical.Update(visit);
-                httpContext.Response.Cookies.Append("VisitorId", Guid.NewGuid().ToString(), new CookieOptions()
-                {
-                    Path = "/",
-                    HttpOnly = true,
-                    Secure = false,
-                });
-            }
-
-            await tourReContext.SaveChangesAsync();
-
+            tourReContext.Statistical.Update(st);
+            tourReContext.SaveChanges();
         }
 
         public Task Invoke(HttpContext httpContext)
@@ -80,16 +64,13 @@ namespace TTTN_Travel.Middlewares
             }
             else if (path != null && !path.Equals("/admin") && !path.Equals("/Login/Index"))
             {
+               
                 //Thống kê người ghé vào web
                 if (httpContext.Session.GetString("Online") != GetIPAddress())
                 {
-                     abc(httpContext);
+                    abc(httpContext);
                 }
-            }
-            else
-            {
-
-            }
+           }
             return _next(httpContext);
         }
     }

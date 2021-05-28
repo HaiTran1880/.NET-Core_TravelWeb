@@ -30,7 +30,8 @@ namespace TTTN_Travel.Models
         public string Lichtrinh { get; set; }
         [DisplayName("Đánh giá")]
         public int Danhgia { get; set; }
-
+        [DisplayName("Giá trẻ em")]
+        public string Giatre { get; set; }
         [NotMapped]
         [DisplayName("Upload Image")]
         public IFormFile ImageFile { get; set; }
